@@ -4,62 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#D54D4D"
+    android:background="@drawable/basic_bg"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/text_1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_alignBottom="@+id/text_2"
-        android:layout_marginBottom="100dp"
-        android:text="Работайтe продуктивно!"
-        android:textColor="@color/white"
-        android:textSize="30sp" />
-
-    <TextView
-        android:id="@+id/text_2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:text="Принимайте неудачи!"
-        android:textColor="@color/white"
-        android:textSize="30sp" />
-
-    <TextView
-        android:id="@+id/text_3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:text="Идите вперед!"
-        android:layout_alignTop="@+id/text_2"
-        android:layout_marginTop="100dp"
-        android:textColor="@color/white"
-        android:textSize="30sp" />
-
-    <Button
-        android:id="@+id/create_account"
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/slideViewPager"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="113dp"
-        android:background="@drawable/view_action_button_shape"
-        android:text="Создать аккаунт"
-        android:textColor="@color/white"
-        android:textSize="18sp" />
+        android:layout_height="match_parent"/>
 
-    <Button
-        android:id="@+id/enter"
+    <LinearLayout
+        android:id="@+id/dotsLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="40dp"
-        android:background="@drawable/view_action_button_shape"
-        android:text="Войти"
-        android:textColor="@color/white"
-        android:textSize="18sp" />
+        android:layout_height="wrap_content"/>
 </RelativeLayout>
