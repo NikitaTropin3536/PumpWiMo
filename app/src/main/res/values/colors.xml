@@ -9,7 +9,11 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="main_bg1">#040303</color>
-    <color name="main_bg2">#474444</color>
+    <color name="main_bg2">#302E2E</color>
 
     <color name="hint_color">#000000</color>
+    <color name="text_color">#000000</color>
+
+
+    <color name="main_bg3">#DCD7D7</color>
 </resources>

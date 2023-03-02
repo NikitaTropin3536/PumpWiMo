@@ -1,13 +1,13 @@
 <resources>
     <string name="app_name">PumpWiMo</string>
-    <string name="title_activity_second">SecondActivity</string>
-    <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
 
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
-    <string name="title_activity_intermediate">IntermediateActivity</string>
+    // 1 - ая карточка
+    <string name="become">Добро пожаловать в PUMWIMO</string>
+    <string name="slogan_1">Работайте продуктивно</string>
+    <string name="slogan_2">Принимайте неудачи"</string>
+    <string name="slogan_3">Идите вперед</string>
+
+    <string name="first_fragment_label">Принимайте неудачи"</string>
+    <string name="second_fragment_label">Идите вперед</string>
+
 </resources>

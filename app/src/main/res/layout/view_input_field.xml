@@ -19,7 +19,6 @@
         android:id="@+id/input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Dosamaris@gmail.com"
         android:textColor="@color/black"
         android:textSize="18sp" />
 </LinearLayout>

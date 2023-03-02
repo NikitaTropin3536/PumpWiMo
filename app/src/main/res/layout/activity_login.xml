@@ -4,12 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/login"
+    android:background="@color/white"
     android:orientation="vertical"
     android:padding="30dp"
-    tools:context=".LoginActivity">
+    tools:context=".activities.LoginActivity">
 
-    <com.example.pumpwimo.InputField
+    <com.example.pumpwimo.views.InputField
         android:id="@+id/input_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -17,7 +17,7 @@
         android:inputType="textEmailAddress"
         app:title="Email address" />
 
-    <com.example.pumpwimo.InputField
+    <com.example.pumpwimo.views.InputField
         android:id="@+id/input_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -39,7 +39,7 @@
         android:layout_height="0dp"
         android:layout_weight="1" />
 
-    <com.example.pumpwimo.ActionButton
+    <com.example.pumpwimo.views.ActionButton
         android:id="@+id/button_enter"
         android:layout_width="320dp"
         android:layout_height="100dp"

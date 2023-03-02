@@ -1,19 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/basic_bg"
-    tools:context=".MainActivity">
+    android:background="@color/main_bg3"
+    app:layoutDescription="@xml/activity_main_scene"
+    tools:context=".activities.MainActivity">
 
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/slideViewPager"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view1"
+        android:layout_width="200dp"
+        android:layout_height="200dp" />
 
-    <LinearLayout
-        android:id="@+id/dotsLayout"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view5"
+        android:layout_width="200dp"
+        android:layout_height="200dp" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view2"
+        android:layout_width="200dp"
+        android:layout_height="200dp" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view3"
+        android:layout_width="200dp"
+        android:layout_height="200dp" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view4"
+        android:layout_width="200dp"
+        android:layout_height="200dp" />
+
+    <androidx.constraintlayout.helper.widget.Carousel
+        android:id="@+id/carousel"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-</RelativeLayout>
+        android:layout_height="match_parent"
+        app:carousel_backwardTransition="@+id/backward"
+        app:carousel_emptyViewsBehavior="gone"
+        app:carousel_firstView="@+id/cardView2"
+        app:carousel_forwardTransition="@+id/forward"
+        app:carousel_infinite="true"
+        app:carousel_nextState="@+id/next"
+        app:carousel_previousState="@+id/previous"
+        app:constraint_referenced_ids="card_view1, card_view2, card_view3, card_view4, card_view5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.motion.widget.MotionLayout>
+

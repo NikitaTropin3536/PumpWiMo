@@ -1,4 +1,4 @@
-package com.example.pumpwimo;
+package com.example.pumpwimo.views;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.text.InputType;
@@ -8,6 +8,7 @@ import android.widget.LinearLayout;
 
 import androidx.annotation.Nullable;
 
+import com.example.pumpwimo.R;
 import com.example.pumpwimo.databinding.ViewNicknameBinding;
 
 public class NickName extends LinearLayout {

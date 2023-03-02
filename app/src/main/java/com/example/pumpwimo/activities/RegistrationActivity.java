@@ -1,8 +1,10 @@
-package com.example.pumpwimo;
+package com.example.pumpwimo.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.pumpwimo.R;
 
 public class RegistrationActivity extends AppCompatActivity {
 

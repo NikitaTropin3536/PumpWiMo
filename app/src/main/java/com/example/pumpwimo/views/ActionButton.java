@@ -1,4 +1,4 @@
-package com.example.pumpwimo;
+package com.example.pumpwimo.views;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
@@ -7,6 +7,7 @@ import android.widget.FrameLayout;
 
 import androidx.annotation.Nullable;
 
+import com.example.pumpwimo.R;
 import com.example.pumpwimo.databinding.ViewActionButtonBinding;
 
 
