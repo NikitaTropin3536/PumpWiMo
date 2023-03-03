@@ -4,45 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/main_bg3"
     android:orientation="vertical"
     android:padding="30dp"
     tools:context=".activities.LoginActivity">
 
-    <com.example.pumpwimo.views.InputField
-        android:id="@+id/input_email"
+    <com.google.android.material.button.MaterialButton
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:inputType="textEmailAddress"
-        app:title="Email address" />
-
-    <com.example.pumpwimo.views.InputField
-        android:id="@+id/input_password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:inputType="textPassword"
-        app:title="Password" />
-
-    <TextView
-        android:id="@+id/text_forgot_password"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="3dp"
-        android:layout_marginTop="10dp"
-        android:text="Забыл пароль?"
-        android:textColor="@color/white" />
-
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
-
-    <com.example.pumpwimo.views.ActionButton
-        android:id="@+id/button_enter"
-        android:layout_width="320dp"
-        android:layout_height="100dp"
-        android:layout_gravity="center"
-        android:text="Войти" />
+        android:layout_height="65dp"
+        android:text="Войти"
+        app:cornerRadius="35dp"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="50dp"
+        android:textSize="20sp"
+        android:textColor="@color/teal_200"/>
 </LinearLayout>

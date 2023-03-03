@@ -7,7 +7,13 @@
     <string name="slogan_2">Принимайте неудачи"</string>
     <string name="slogan_3">Идите вперед</string>
 
-    <string name="first_fragment_label">Принимайте неудачи"</string>
-    <string name="second_fragment_label">Идите вперед</string>
+    <string name="second_fragment_label">
+    Работайте продуктивно\n
+    Принимайте неудачи\n
+    Идите вперед\n</string>
 
+    <string name="first_fragment_label">
+    Работайте продуктивно\n
+    Принимайте неудачи\n
+    Идите вперед\n</string>
 </resources>
