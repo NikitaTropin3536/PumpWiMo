@@ -10,11 +10,29 @@
 
     // основные цвета приложения
     <color name="main_bg1">#040303</color>
-    <color name="main_bg2">#CFC8C8</color>
+    <color name="main_bg2">#131212</color>
     <color name="main_bg3">#E3E2DC</color>
 
     // цвет текста
     <color name="text_color">#000000</color>
     <color name="hint_color">#000000</color>
-    // цвета для логтипа
+
+    // для регистрации
+    <color name="colorPrimary">#131EEA</color>
+    <color name="colorPrimaryDark">#131EEA</color>
+    <color name="colorAccent">#F13413</color>
+    <color name="colorLayerDark">#D6000000</color>
+    <color name="colorLayerSemiDark">#6000000</color>
+    <color name="colorWhite">#FFFFFFFF</color>
+    <color name="colorTextPrimary">#212121</color>
+    <color name="colorTextHint">#808080</color>
+
+    // для bottom navigation view
+    <color name="colorPrimary2">#673AB7</color>
+    <color name="colorPrimaryDark2">#151515</color>
+    <color name="colorAccent2">#FF5252</color>
+    <color name="colorPrimaryText">#212121</color>
+    <color name="colorBackground">#CFC8C8</color>
+    <color name="colorWhite2">#FFFFFFFF</color>
+    <color name="colorSemiDark">#90000000</color>
 </resources>
