@@ -1,31 +1,46 @@
 <resources>
     <string name="app_name">PumpWiMo</string>
 
-    // 1 - ая карточка
+    // 1 - карточка, которая знакомит пользователя с приложением
     <string name="become">Добро пожаловать в PUMWIMO</string>
     <string name="slogan_1">Работайте продуктивно</string>
     <string name="slogan_2">Принимайте неудачи"</string>
     <string name="slogan_3">Идите вперед</string>
 
-    <string name="second_fragment_label">
-    Работайте продуктивно\n
-    Принимайте неудачи\n
-    Идите вперед\n</string>
-
-    <string name="first_fragment_label">
-    Работайте продуктивно\n
-    Принимайте неудачи\n
-    Идите вперед\n</string>
+    // для кнопок авторизации и регистрации
     <string name="create_account">Создать Аккаунт</string>
     <string name="enter">Войти</string>
-    <string name="fulfill_your_dream">Fulfill your dream</string>
-    <string name="welcome">Welcome!</string>
-    <string name="your_email">Your Email</string>
-    <string name="password">Password</string>
-    <string name="forgot_password">Forgot Password</string>
+
+    // для экрана авторизации и регистрации
+    <string name="fulfill_your_dream">Исполни свою мечту!</string>
+    <string name="welcome">Привет!</string>
+    <string name="your_email">Твой email (..@..)</string>
+    <string name="password">Пароль (>8 символов)</string>
+    <string name="your_nickname">Твой ник</string>
+    <string name="forgot_password">Забыл пароль?</string>
+    <string name="begin_to_purpose">Начни путь к цели!</string>
+
+    // для Bottom Navigation View
     <string name="home">Home</string>
     <string name="settings">Settings</string>
     <string name="user">User</string>
-    <string name="good_morning">Good morning nickname!</string>
+    <string name="good_morning">Good morning, friend!</string>
     <string name="search">Search</string>
+
+
+    // для SliderAdapter
+
+    <string name="first_slide_title">Home</string>
+    <string name="second_slide_title">Settings</string>
+    <string name="third_slide_title">User</string>
+    <string name="fourth_slide_title">Good morning nickname!</string>
+
+    <string name="first_slide_desc">Home</string>
+    <string name="second_slide_desc">Settings</string>
+    <string name="third_slide_desc">User</string>
+    <string name="fourth_slide_desc">Good morning nickname!</string>
+    <string name="tv_shows">tv_shows</string>
+    <string name="add_to_watchlist">Add to Watchlist</string>
+    <string name="come">Войти</string>
+    <string name="register">Зарегестрироваться</string>
 </resources>

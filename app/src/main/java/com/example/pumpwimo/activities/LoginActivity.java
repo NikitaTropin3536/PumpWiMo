@@ -1,33 +1,69 @@
 package com.example.pumpwimo.activities;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.pumpwimo.databinding.ActivityLoginBinding;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class LoginActivity extends AppCompatActivity {
 
     ActivityLoginBinding binding;
+
+    FirebaseAuth auth; // для авторизации
+
+    FirebaseDatabase db; // для подключения к базе даннных
+
+    DatabaseReference users; // для работы с табличками внутри бд
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        // войти
+        // теперь мы поместим данные в наши переменные
+        auth = FirebaseAuth.getInstance(); // запускаем авторизацию в бд
+        db = FirebaseDatabase.getInstance(); // подключаемся к бд
+
+        /*
+        Указываем название таблички, с которой мы будем работать
+         */
+        // табличка Users - пользователи
+        users = db.getReference("Users");
+
+        // авторизация
         binding.buttonLogin.setOnClickListener(v -> {
-            Intent i = new Intent(LoginActivity.this, BoardActivity.class);
-            startActivity(i);
-            finish();
+            // пишем проверку
+            //...
+            //.........
+            auth.signInWithEmailAndPassword(binding.inputEmail.getText().toString(), binding.inputPassword.getText().toString())
+                    .addOnSuccessListener(new OnSuccessListener<AuthResult>() { // успешная авторизация
+                        @Override
+                        public void onSuccess(AuthResult authResult) {
+                            startActivity(new Intent(LoginActivity.this, BoardActivity.class));
+                            finish();
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Snackbar.make(binding.loginLayout, "Ошибка авторизации. " +  e.getMessage(), Snackbar.LENGTH_SHORT);
+                        }
+                    }); //не успешное добавление пользователя
         });
 
         // создать аккаунт
         binding.buttonCreateAccount.setOnClickListener(v -> {
             Intent i = new Intent(LoginActivity.this, RegistrationActivity.class);
             startActivity(i);
-            finish();
         });
 
         // совпадение или нет

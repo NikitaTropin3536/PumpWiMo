@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/login_layout"
     tools:context=".activities.LoginActivity">
 
     <ImageView
@@ -41,7 +42,7 @@
             android:layout_width="180dp"
             android:layout_height="50dp"
             android:includeFontPadding="false"
-            android:src="@drawable/recognition" />
+            android:src="@drawable/recognition_" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -49,7 +50,7 @@
             android:includeFontPadding="false"
             android:text="@string/fulfill_your_dream"
             android:textColor="@color/colorWhite"
-            android:textSize="22sp" />
+            android:textSize="21sp" />
     </LinearLayout>
 
     <View
@@ -78,10 +79,10 @@
             android:layout_marginTop="25dp"
             android:layout_marginEnd="10dp"
             android:gravity="center"
-            android:text="@string/welcome"
+            android:text="Привет!"
             android:textColor="@color/colorTextPrimary"
             android:textSize="20sp"
-            android:textStyle="normal"
+            android:textStyle="bold"
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
@@ -100,6 +101,7 @@
             android:textColor="@color/colorTextPrimary"
             android:textColorHint="@color/black"
             android:textSize="18sp"
+            android:textStyle="bold"
             app:layout_constraintTop_toBottomOf="@+id/textWelcome"
             tools:ignore="Autofill" />
 
@@ -140,6 +142,7 @@
             android:textColor="@color/colorTextPrimary"
             android:textColorHint="@color/black"
             android:textSize="18sp"
+            android:textStyle="bold"
             app:layout_constraintTop_toBottomOf="@id/viewDividerForEmail"
             tools:ignore="Autofill" />
 
@@ -182,17 +185,19 @@
             app:layout_constraintTop_toBottomOf="@id/viewDividerForPassword"
             tools:ignore="MissingConstraints" />
 
-        <TextView
+        <Button
             android:id="@+id/textForgotPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="10dp"
+            android:background="colorWhite"
             android:gravity="center"
             android:text="@string/forgot_password"
+            android:textAllCaps="false"
             android:textColor="@color/black"
-            android:textSize="18sp"
+            android:textSize="19sp"
             android:textStyle="bold"
             app:layout_constraintTop_toBottomOf="@id/buttonLogin" />
 
