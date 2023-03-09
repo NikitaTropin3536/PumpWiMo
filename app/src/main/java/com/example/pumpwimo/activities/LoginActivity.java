@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.example.pumpwimo.databinding.ActivityLoginBinding;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -24,6 +25,12 @@ public class LoginActivity extends AppCompatActivity {
     FirebaseDatabase db; // для подключения к базе даннных
 
     DatabaseReference users; // для работы с табличками внутри бд
+
+    int permission; // переменная для проверки
+
+    public final static String STRING_1 = "Введите данные полностью";
+    public final static String STRING_2 = "Учтите требования";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,7 +62,7 @@ public class LoginActivity extends AppCompatActivity {
                     }).addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
-                            Snackbar.make(binding.loginLayout, "Ошибка авторизации. " +  e.getMessage(), Snackbar.LENGTH_SHORT);
+                            Snackbar.make(binding.loginLayout, "Неправильные данные", Snackbar.LENGTH_SHORT);
                         }
                     }); //не успешное добавление пользователя
         });
@@ -65,7 +72,11 @@ public class LoginActivity extends AppCompatActivity {
             Intent i = new Intent(LoginActivity.this, RegistrationActivity.class);
             startActivity(i);
         });
+    }
 
-        // совпадение или нет
+    //check() проверяет введённые данные на соответствие требованиям
+    private void check() {
+        Log.v("Permission", "permission == " + permission);
+        Log.i("Check", "check == end");
     }
 }

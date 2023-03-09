@@ -1,5 +1,6 @@
 package com.example.pumpwimo.activities;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -9,8 +10,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.pumpwimo.R;
 
+@SuppressLint("CustomSplashScreen")
 public class SplashScreenActivity extends AppCompatActivity {
 
+    // 1. Здесь пользователь видит заставку моего приложения
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +32,6 @@ public class SplashScreenActivity extends AppCompatActivity {
                 startActivity(i);
                 finish();
             }
-        }, 690);
+        }, 500);
     }
 }

@@ -6,7 +6,7 @@
     android:thickness="4dp"
     android:useLevel="false">
     <solid
-        android:color="@color/main_bg1">
+        android:color="@color/black">
     </solid>
     <size
         android:height="200dp"

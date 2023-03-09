@@ -2,9 +2,9 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/login_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/login_layout"
     tools:context=".activities.LoginActivity">
 
     <ImageView
@@ -80,7 +80,7 @@
             android:layout_marginEnd="10dp"
             android:gravity="center"
             android:text="Привет!"
-            android:textColor="@color/colorTextPrimary"
+            android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintTop_toTopOf="parent" />
@@ -98,7 +98,7 @@
             android:inputType="textEmailAddress"
             android:paddingStart="60dp"
             android:paddingEnd="10dp"
-            android:textColor="@color/colorTextPrimary"
+            android:textColor="@color/black"
             android:textColorHint="@color/black"
             android:textSize="18sp"
             android:textStyle="bold"
@@ -123,7 +123,7 @@
             android:src="@drawable/ic_email"
             app:layout_constraintBottom_toBottomOf="@+id/inputEmail"
             app:layout_constraintStart_toStartOf="@+id/inputEmail"
-            app:tint="@color/colorTextPrimary"
+            app:tint="@color/black"
             tools:ignore="MissingConstraints" />
 
         <EditText
@@ -139,7 +139,7 @@
             android:inputType="textPassword"
             android:paddingStart="60dp"
             android:paddingEnd="10dp"
-            android:textColor="@color/colorTextPrimary"
+            android:textColor="@color/black"
             android:textColorHint="@color/black"
             android:textSize="18sp"
             android:textStyle="bold"
@@ -164,7 +164,7 @@
             android:src="@drawable/ic_lock"
             app:layout_constraintBottom_toBottomOf="@id/inputPassword"
             app:layout_constraintStart_toStartOf="@id/inputPassword"
-            app:tint="@color/colorTextPrimary" />
+            app:tint="@color/black" />
 
         <Button
             android:id="@+id/buttonLogin"
@@ -179,7 +179,7 @@
             android:background="@drawable/material_button_shape"
             android:text="@string/enter"
             android:textAllCaps="false"
-            android:textColor="@color/text_color"
+            android:textColor="@color/black"
             android:textSize="18sp"
             android:textStyle="normal"
             app:layout_constraintTop_toBottomOf="@id/viewDividerForPassword"
@@ -192,7 +192,7 @@
             android:layout_marginStart="10dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="10dp"
-            android:background="colorWhite"
+            android:background="@color/colorWhite"
             android:gravity="center"
             android:text="@string/forgot_password"
             android:textAllCaps="false"
@@ -209,7 +209,7 @@
             android:background="@drawable/material_button_shape"
             android:text="@string/create_account"
             android:textAllCaps="false"
-            android:textColor="@color/text_color"
+            android:textColor="@color/black"
             android:textSize="18sp"
             android:textStyle="normal"
             app:layout_constraintBottom_toBottomOf="parent"

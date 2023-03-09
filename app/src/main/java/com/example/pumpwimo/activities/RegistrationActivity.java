@@ -2,8 +2,8 @@ package com.example.pumpwimo.activities;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -38,6 +38,7 @@ public class RegistrationActivity extends AppCompatActivity {
     public final static String STRING_1 = "Введите данные полностью";
     public final static String STRING_2 = "Учтите требования";
 
+    @SuppressLint("ShowToast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +46,7 @@ public class RegistrationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_registration);
 
         // теперь мы поместим данные в наши переменные
-        auth = FirebaseAuth.getInstance(); // запускаем авторизацию в бд
+        auth = FirebaseAuth.getInstance();
         db = FirebaseDatabase.getInstance(); // подключаемся к бд
 
         /*
@@ -61,21 +62,21 @@ public class RegistrationActivity extends AppCompatActivity {
             // 2. совпадение - не думаю
             switch (permission) {
                 case 1:
-                    Snackbar.make(binding.registrationLayout, STRING_1, Snackbar.LENGTH_SHORT);
+                    Snackbar.make(binding.registrationLayout, STRING_1, Snackbar.LENGTH_SHORT).show();
                     Log.v("text", STRING_1);
                     break;
                 case 2:
-                    Snackbar.make(binding.registrationLayout, STRING_2, Snackbar.LENGTH_SHORT);
+                    Snackbar.make(binding.registrationLayout, STRING_2, Snackbar.LENGTH_SHORT).show();
                     Log.v("text", STRING_2);
                     break;
-                default: // подумать
+                case 3:
                     // Регистрация пользователя
                     auth.createUserWithEmailAndPassword(binding.inputEmail.getText().toString(), binding.inputPassword.getText().toString())
                             .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                                 /*
-                    обработчик события, который вызовет функцию onSuccess только в том случае,
-                    если пользователь был успешно добавлен в базу данных
-                    */
+                                обработчик события, который вызовет функцию onSuccess только в том случае,
+                                если пользователь будет успешно добавлен в базу данных
+                                */
                                 @Override
                                 public void onSuccess(AuthResult authResult) {
                                     User user = new User();
@@ -85,9 +86,9 @@ public class RegistrationActivity extends AppCompatActivity {
                                     user.setNickName(binding.nickName.getText().toString());
 
                                      /*
-                            добавляем нового пользователя в табличку users,
-                            ключ, по которому мы идентифицируем пользователя - id пользователя
-                             */
+                                    добавляем нового пользователя в табличку users,
+                                    ключ, по которому мы идентифицируем пользователя - id пользователя
+                                    */
 
                                     users.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(user)
                                             .addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -102,7 +103,6 @@ public class RegistrationActivity extends AppCompatActivity {
 
                                 }
                             }); // создать пользователя с email - ом и паролем
-                    break;
             }
         });
     }
@@ -115,30 +115,29 @@ public class RegistrationActivity extends AppCompatActivity {
                 || TextUtils.isEmpty(binding.yourTelephone.getText().toString())
                 || TextUtils.isEmpty(binding.nickName.getText().toString())) {
             permission = 1; // введите данные полностью
-        }else if (!binding.inputEmail.getText().toString().contains("@") || binding.inputPassword.getText().toString().length() <= 8) {
-
-            //ДОБАВИТЬ УСЛОВИЯ!
+        } else if (!binding.inputEmail.getText().toString().contains("@") || binding.inputPassword.getText().toString().length() <= 8) {
             permission = 2; // учтите требования
         } else if (binding.inputEmail.getText().toString().contains("@") && binding.inputPassword.getText().toString().length() > 8) {
-
-            // ДОБАВИТЬ УСЛОВИЯ!
             permission = 3; // разрешение
         }
         Log.v("Permission", "permission == " + permission);
         Log.i("Check", "check == end");
     }
 
+    // метод вывода подтверждения регистрации
     private void showСonfirmationWindow() {
-        AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+        AlertDialog.Builder dialog = new AlertDialog.Builder(this); // создаем некий объект
 
         LayoutInflater inflater = LayoutInflater.from(this);
 
         View register_confirmation = inflater.inflate(R.layout.register_confirmation_window, null);
+
+        // ставим нашу разметку
         dialog.setView(register_confirmation);
 
         Button buttonAction = findViewById(R.id.buttonAction);
         buttonAction.setOnClickListener(v -> {
-            Intent i = new Intent(RegistrationActivity.this, BoardActivity.class); // проверить на практике!!!
+            Intent i = new Intent(RegistrationActivity.this, BoardActivity.class);
             startActivity(i);
             finish();
         });
