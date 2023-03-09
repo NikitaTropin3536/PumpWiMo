@@ -21,17 +21,17 @@
 
     // slides_headings
     <string name="first_slide_heading">Добро пожаловать в PUMPWIMO!</string>
-    <string name="second_slide_heading">Интересные и увлекательные здания!</string>
+    <string name="second_slide_heading">Интересные и увлекательные задания!</string>
     <string name="third_slide_heading">Соревнуйтесь!</string>
-    <string name="fourth_slide_heading">Ищите друзей и развлекайтесь вместе с ними!</string>
+    <string name="fourth_slide_heading">Развлекайтесь вместе с друзьями!</string>
     <string name="fifth_slide_heading">Награды!</string>
 
     // slides_descriptions
-    <string name="first_slide_description">Давайте мы покажем, чем можем Вас развлечь.</string>
-    <string name="second_slide_description">В ншем приложении более 100 увлекательных квестов по прокачке мотивации и силе воли. Риснеете пройти их все и получить самую крутую награду?</string>
-    <string name="third_slide_description">У вс много соперников. Соревнуйтесь с ними в выполнении заданий. Кто станет самым крутым?</string>
+    <string name="first_slide_description">Мотивация\nПрокачка силы воли\nУвлекательное времяпрепровождение</string>
+    <string name="second_slide_description">В нашем приложении более 100 уникальных квестов по прокачке мотивации и силы воли. Рискнёте пройти их все и получить самую крутую награду?</string>
+    <string name="third_slide_description">У Вас много соперников. Соревнуйтесь с ними в выполнении заданий. Кто станет первым?</string>
     <string name="fourth_slide_description">Можно проходить задания вместе с друзьями. Соберите свою команду!</string>
-    <string name="fifth_slide_description">Награды - это мотивация. Все, чо вы делаете - принесеет вам уникальные призы!</string>
+    <string name="fifth_slide_description">Награды - это мотивация. Все, что вы делаете - принесеет вам уникальные призы</string>
 
     <string name="first_fragment_label">ааа</string>
     <string name="second_fragment_label">ааа</string>

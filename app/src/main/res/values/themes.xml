@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.PumpWiMo" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.PumpWiMo" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_500</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
@@ -14,8 +14,10 @@
         <!-- Customize your theme here. -->
     </style>
 
+    // тема для всплывающего сообщения
     <style name="AlertDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
         <!-- Primary brand color. -->
         <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
     </style>
+
 </resources>

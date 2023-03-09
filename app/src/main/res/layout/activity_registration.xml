@@ -42,7 +42,7 @@
             android:layout_width="180dp"
             android:layout_height="50dp"
             android:includeFontPadding="false"
-            android:src="@drawable/recognition_" />
+            android:src="@drawable/recognition_1" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -262,6 +262,5 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/viewNickName"
             app:layout_constraintVertical_bias="0.5" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

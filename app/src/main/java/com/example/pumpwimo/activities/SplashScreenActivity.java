@@ -19,8 +19,6 @@ public class SplashScreenActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         // наша разметка - полный экран
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         setContentView(R.layout.activity_splashscreen);
 
@@ -32,6 +30,6 @@ public class SplashScreenActivity extends AppCompatActivity {
                 startActivity(i);
                 finish();
             }
-        }, 500);
+        }, 700);
     }
 }

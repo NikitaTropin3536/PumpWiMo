@@ -1,15 +1,18 @@
 package com.example.pumpwimo.activities;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 
 import com.example.pumpwimo.R;
@@ -25,28 +28,31 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class RegistrationActivity extends AppCompatActivity {
 
-    ActivityRegistrationBinding binding;
+    private ActivityRegistrationBinding binding;
 
-    FirebaseAuth auth; // для авторизации
+    private FirebaseAuth auth; // для авторизации
 
-    FirebaseDatabase db; // для подключения к базе даннных
+    private FirebaseDatabase db; // для подключения к базе даннных
 
-    DatabaseReference users; // для работы с табличками внутри бд
+    private DatabaseReference users; // для работы с табличками внутри бд
 
-    int permission; // переменная для проверки регитсрации
+    private int permission; // переменная для проверки регитсрации
 
-    public final static String STRING_1 = "Введите данные полностью";
-    public final static String STRING_2 = "Учтите требования";
+    private final static String STRING_1 = "Введите данные полностью";
+    private final static String STRING_2 = "Учтите требования";
 
     @SuppressLint("ShowToast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityRegistrationBinding.inflate(getLayoutInflater());
-        setContentView(R.layout.activity_registration);
+        setContentView(binding.getRoot());
+
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         // теперь мы поместим данные в наши переменные
-        auth = FirebaseAuth.getInstance();
+        auth = FirebaseAuth.getInstance(); // запускаем авторизацию в бд
         db = FirebaseDatabase.getInstance(); // подключаемся к бд
 
         /*
@@ -57,7 +63,7 @@ public class RegistrationActivity extends AppCompatActivity {
 
         // обработка нажатия на кнопку создания аккаунта
         binding.buttonCreateAccount.setOnClickListener(v -> {
-            check(); // 1. проверка
+            check(); // 1. проверка требований
 
             // 2. совпадение - не думаю
             switch (permission) {
@@ -70,6 +76,7 @@ public class RegistrationActivity extends AppCompatActivity {
                     Log.v("text", STRING_2);
                     break;
                 case 3:
+
                     // Регистрация пользователя
                     auth.createUserWithEmailAndPassword(binding.inputEmail.getText().toString(), binding.inputPassword.getText().toString())
                             .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
@@ -97,7 +104,7 @@ public class RegistrationActivity extends AppCompatActivity {
                                                 */
                                                 @Override
                                                 public void onSuccess(Void unused) {
-                                                    showСonfirmationWindow(); // вызывается метод уведомления, жмем н кнопку и все!!!!
+                                                    // Написать НАШЕ УВЕДОМЛЕНИЕ!!!!!!!!!!
                                                 }
                                             });
 
@@ -107,8 +114,7 @@ public class RegistrationActivity extends AppCompatActivity {
         });
     }
 
-
-    //check() проверяет введённые данные на соответствие требованиям
+    // check() проверяет введённые данные на соответствие требованиям
     private void check() {
         if (TextUtils.isEmpty(binding.inputEmail.getText().toString())
                 || TextUtils.isEmpty(binding.inputPassword.getText().toString())
@@ -124,22 +130,23 @@ public class RegistrationActivity extends AppCompatActivity {
         Log.i("Check", "check == end");
     }
 
-    // метод вывода подтверждения регистрации
-    private void showСonfirmationWindow() {
-        AlertDialog.Builder dialog = new AlertDialog.Builder(this); // создаем некий объект
+    private void showTheDialog() {
+        // создем диалоговое окно
+        AlertDialog.Builder dialog = new AlertDialog.Builder(getApplicationContext());
 
-        LayoutInflater inflater = LayoutInflater.from(this);
+        View register_confimation_window = getLayoutInflater().inflate(R.layout.register_confirmation_window, null);
 
-        View register_confirmation = inflater.inflate(R.layout.register_confirmation_window, null);
+        Button buttonAction = register_confimation_window.findViewById(R.id.buttonAction);
 
-        // ставим нашу разметку
-        dialog.setView(register_confirmation);
-
-        Button buttonAction = findViewById(R.id.buttonAction);
         buttonAction.setOnClickListener(v -> {
-            Intent i = new Intent(RegistrationActivity.this, BoardActivity.class);
-            startActivity(i);
+            Intent intent = new Intent(RegistrationActivity.this, BoardActivity.class);
+            startActivity(intent);
             finish();
         });
+
+        dialog.setView(register_confimation_window);
+        AlertDialog dialog2 = dialog.create();
+        dialog2.show();
+        //
     }
 }
