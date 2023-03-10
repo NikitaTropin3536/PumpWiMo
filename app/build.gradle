@@ -52,5 +52,4 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth' // авторизация в бд
     implementation 'com.google.firebase:firebase-database' // сохранение данных в бд
 
-    implementation 'io.ak1:bubbletabbar:1.0.8'
 }

@@ -8,7 +8,7 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="colorWhite">#FFFFFFFF</color>
-
+    <color name="white">#FFFFFFFF</color>
     // основные цвета приложения
     <color name="main_bg1">#040303</color>
     <color name="main_bg2">#131212</color>

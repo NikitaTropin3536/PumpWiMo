@@ -6,23 +6,23 @@
     app:startDestination="@id/FirstFragment">
 
     <fragment
-        android:id="@+id/FirstFragment"
-        android:name="com.example.pumpwimo.fragments.Fragment_1"
+        android:id="@+id/UserFragment"
+        android:name="com.example.pumpwimo.fragments.UserFragment"
         android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_1" >
+        tools:layout="@layout/fragment_user" >
 
         <action
             android:id="@+id/action_FirstFragment_to_SecondFragment"
             app:destination="@id/SecondFragment" />
     </fragment>
     <fragment
-        android:id="@+id/SecondFragment"
-        android:name="com.example.pumpwimo.fragments.Fragment_2"
+        android:id="@+id/SettingsFragment"
+        android:name="com.example.pumpwimo.fragments.SettingsFragment"
         android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_2" >
+        tools:layout="@layout/fragment_settings" >
 
         <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
+            android:id="@+id/action_SettingsFragment_to_UserFragment"
+            app:destination="@id/UserFragment" />
     </fragment>
 </navigation>
