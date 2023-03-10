@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="195dp"
+        android:layout_height="match_parent"
+        android:background="@drawable/splash_square" />
+
+    <ImageView
+        android:id="@+id/cup"
+        android:layout_width="130dp"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="110dp"
+        android:src="@drawable/cup" />
+
+    <ImageView
+        android:id="@+id/logo_ring"
+        android:layout_width="220dp"
+        android:layout_height="190dp"
+        android:layout_alignTop="@+id/cup"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="-50dp"
+        android:src="@drawable/logo_ring" />
+
+    <ImageView
+        android:id="@+id/recognition"
+        android:layout_width="250dp"
+        android:layout_height="190dp"
+        android:layout_alignTop="@+id/cup"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/recognition_2" />
+
+    <ImageView
+        android:id="@+id/logo_line"
+        android:layout_width="270dp"
+        android:layout_height="190dp"
+        android:layout_alignTop="@+id/cup"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="78dp"
+        android:src="@drawable/logo_line" />
+
+    <RelativeLayout
+        android:layout_width="195dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/splash_square" />
+</RelativeLayout>
