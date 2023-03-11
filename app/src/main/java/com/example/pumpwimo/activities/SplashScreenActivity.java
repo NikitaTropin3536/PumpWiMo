@@ -21,7 +21,7 @@ public class SplashScreenActivity extends AppCompatActivity {
         // наша разметка - полный экран
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
-                setContentView(R.layout.activity_splashscreen);
+        setContentView(R.layout.activity_splashscreen);
 
         new Handler().postDelayed(new Runnable() {
             @Override

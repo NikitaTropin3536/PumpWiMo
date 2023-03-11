@@ -1,5 +1,6 @@
 package com.example.pumpwimo.models;
 
+// квест
 public class Quest {
 
     private String quest_name;
