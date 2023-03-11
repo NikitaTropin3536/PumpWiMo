@@ -54,5 +54,4 @@ dependencies {
 
     implementation  'io.ak1:bubbletabbar:1.0.8'
 
-
 }

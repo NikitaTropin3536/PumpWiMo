@@ -104,7 +104,7 @@
                     android:textColor="@color/black"
                     android:textColorHint="@color/black"
                     android:textSize="18sp"
-                    android:textStyle="bold"
+                    android:textStyle="italic"
                     tools:ignore="Autofill,MissingConstraints" />
 
                 <View
@@ -126,7 +126,7 @@
                     android:src="@drawable/ic_email"
                     app:layout_constraintBottom_toBottomOf="@+id/inputEmail"
                     app:layout_constraintStart_toStartOf="@+id/inputEmail"
-                    app:tint="@color/black"
+                    app:tint="#252020"
                     tools:ignore="MissingConstraints" />
 
                 <EditText
@@ -145,7 +145,7 @@
                     android:textColor="@color/black"
                     android:textColorHint="@color/black"
                     android:textSize="18sp"
-                    android:textStyle="bold"
+                    android:textStyle="italic"
                     app:layout_constraintTop_toBottomOf="@id/viewDividerForEmail"
                     tools:ignore="Autofill" />
 
@@ -174,12 +174,12 @@
                     style="?attr/materialButtonOutlinedStyle"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="60dp"
+                    android:layout_marginStart="70dp"
                     android:layout_marginTop="30dp"
                     android:background="@drawable/material_button_shape"
                     android:text="@string/enter"
                     android:textAllCaps="false"
-                    android:textColor="@color/black"
+                    android:textColor="#252020"
                     android:textSize="18sp"
                     android:textStyle="normal"
                     app:layout_constraintStart_toStartOf="parent"
@@ -188,12 +188,12 @@
 
                 <Button
                     android:id="@+id/textForgotPassword"
-                    android:layout_width="150dp"
+                    android:layout_width="200dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="65dp"
+                    android:layout_marginStart="70dp"
                     android:layout_marginTop="30dp"
-                    android:background="@color/colorWhite"
-                    android:gravity="center"
+                    android:layout_marginEnd="60dp"
+                    android:background="@drawable/buttonv2_shape"
                     android:text="@string/forgot_password"
                     android:textAllCaps="false"
                     android:textColor="@color/black"
@@ -208,9 +208,8 @@
                     style="?attr/materialButtonOutlinedStyle"
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="200dp"
                     android:layout_marginTop="30dp"
-                    android:layout_marginEnd="50dp"
+                    android:layout_marginEnd="70dp"
                     android:background="@drawable/material_button_shape"
                     android:text="@string/create_account"
                     android:textAllCaps="false"
@@ -222,7 +221,7 @@
                     tools:ignore="MissingConstraints" />
 
                 <Space
-                    android:layout_width="40dp"
+                    android:layout_width="match_parent"
                     android:layout_height="40dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"

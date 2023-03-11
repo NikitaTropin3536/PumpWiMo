@@ -85,6 +85,7 @@ public class LoginActivity extends AppCompatActivity {
         binding.buttonCreateAccount.setOnClickListener(v -> {
             Intent i = new Intent(LoginActivity.this, RegistrationActivity.class);
             startActivity(i);
+            finish();
         });
     }
 

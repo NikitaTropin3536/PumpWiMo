@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_logo">
 
     <RelativeLayout
         android:layout_width="195dp"
@@ -22,7 +23,7 @@
         android:layout_height="190dp"
         android:layout_alignTop="@+id/cup"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="-50dp"
+        android:layout_marginTop="-51dp"
         android:src="@drawable/logo_ring" />
 
     <ImageView

@@ -66,6 +66,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:background="@drawable/login_background"
+        android:elevation="30dp"
         android:paddingStart="30dp"
         android:paddingEnd="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -101,7 +102,7 @@
             android:textColor="@color/black"
             android:textColorHint="@color/black"
             android:textSize="18sp"
-            android:textStyle="bold"
+            android:textStyle="italic"
             app:layout_constraintTop_toBottomOf="@+id/textWelcome"
             tools:ignore="Autofill" />
 
@@ -123,7 +124,7 @@
             android:src="@drawable/ic_email"
             app:layout_constraintBottom_toBottomOf="@+id/inputEmail"
             app:layout_constraintStart_toStartOf="@+id/inputEmail"
-            app:tint="@color/black"
+            app:tint="#252020"
             tools:ignore="MissingConstraints" />
 
         <EditText
@@ -142,7 +143,7 @@
             android:textColor="@color/black"
             android:textColorHint="@color/black"
             android:textSize="18sp"
-            android:textStyle="bold"
+            android:textStyle="italic"
             app:layout_constraintTop_toBottomOf="@id/viewDividerForEmail"
             tools:ignore="Autofill" />
 
@@ -164,7 +165,7 @@
             android:src="@drawable/ic_lock"
             app:layout_constraintBottom_toBottomOf="@id/inputPassword"
             app:layout_constraintStart_toStartOf="@id/inputPassword"
-            app:tint="@color/black" />
+            app:tint="#252020" />
 
         <EditText
             android:id="@+id/yourTelephone"
@@ -182,7 +183,7 @@
             android:textColor="@color/black"
             android:textColorHint="@color/black"
             android:textSize="18sp"
-            android:textStyle="bold"
+            android:textStyle="italic"
             app:layout_constraintTop_toBottomOf="@id/viewDividerForPassword"
             tools:ignore="Autofill" />
 
@@ -204,7 +205,7 @@
             android:src="@drawable/ic_phone"
             app:layout_constraintBottom_toBottomOf="@id/yourTelephone"
             app:layout_constraintStart_toStartOf="@id/yourTelephone"
-            app:tint="@color/black" />
+            app:tint="#252020" />
 
         <EditText
             android:id="@+id/nickName"
@@ -222,7 +223,7 @@
             android:textColor="@color/black"
             android:textColorHint="@color/black"
             android:textSize="18sp"
-            android:textStyle="bold"
+            android:textStyle="italic"
             app:layout_constraintTop_toBottomOf="@id/viewTelephone"
             tools:ignore="Autofill" />
 
@@ -244,7 +245,7 @@
             android:src="@drawable/ic_nickname"
             app:layout_constraintBottom_toBottomOf="@id/nickName"
             app:layout_constraintStart_toStartOf="@id/nickName"
-            app:tint="@color/black" />
+            app:tint="#252020" />
 
         <Button
             android:id="@+id/buttonCreateAccount"
