@@ -17,4 +17,13 @@
     <color name="colorLayerDark">#D6000000</color>
     <color name="colorLayerSemiDark">#60000000</color>
     <color name="colorSuccess">#4BB543</color>
+
+
+    // settings
+    <color name="primary">#1B023B</color>
+    <color name="secondary">#FF03DAC5</color>
+    <color name="night_mode">#6124B1</color>
+    <color name="notification">#13B2C3</color>
+    <color name="private_account">#E6A326</color>
+    <color name="security">#D95F69</color>
 </resources>

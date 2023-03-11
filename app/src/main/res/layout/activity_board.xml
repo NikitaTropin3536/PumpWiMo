@@ -5,22 +5,30 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F1C5C5"
-    tools:context=".activities.BoardActivity">
+    tools:context=".activities.BoardActivity"
+    tools:ignore="ExtraText">
 
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/slideViewPager"
+    <io.ak1.BubbleTabBar
+        android:id="@+id/bubbleTabBar"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginVertical="20dp"
-        app:layout_constraintBottom_toTopOf="@id/layout"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
-
+        android:layout_height="wrap_content"
+        android:background="#FFF"
+        android:elevation="16dp"
+        android:padding="7dp"
+        app:bubbletab_menuResource="@menu/menu"
+        app:bubbletab_disabled_icon_color="@color/teal_700"
+        app:bubbletab_horizontal_padding="20dp"
+        app:bubbletab_icon_size="20dp"
+        app:bubbletab_title_size="16sp"
+        app:bubbletab_icon_padding="5sp"
+        app:bubbletab_vertical_padding="10dp"
+        app:bubbletab_tab_corner_radius="25dp"
+        tools:ignore="MissingConstraints">
+    </io.ak1.BubbleTabBar>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="parent"
         tools:ignore="MissingConstraints">
 
         <androidx.cardview.widget.CardView
@@ -170,8 +178,5 @@
                     android:textStyle="bold" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
-
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
