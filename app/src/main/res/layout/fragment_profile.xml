@@ -36,5 +36,4 @@
         android:text="Android developer"
         android:textColor="@color/black"
         android:textStyle="bold" />
-
 </RelativeLayout>
