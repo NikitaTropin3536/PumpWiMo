@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -12,21 +12,21 @@
         android:id="@+id/bubbleTabBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/navigation_shape"
+        android:layout_alignParentBottom="true"
+        android:background="#FFFFFF"
         android:elevation="20dp"
-        android:padding="10dp"
-        app:bubbletab_disabled_icon_color="#000000"
-        app:bubbletab_icon_padding="5sp"
-        app:bubbletab_icon_size="20dp"
+        android:padding="7dp"
+        app:bubbletab_disabled_icon_color="#E6572A"
+        app:bubbletab_horizontal_padding="20dp"
+        app:bubbletab_icon_padding="2sp"
+        app:bubbletab_icon_size="23dp"
         app:bubbletab_menuResource="@menu/menu"
-        app:bubbletab_vertical_padding="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        tools:ignore="MissingConstraints">
-    </io.ak1.BubbleTabBar>
+        app:bubbletab_title_size="16sp"
+        app:bubbletab_vertical_padding="13dp" />
 
     <FrameLayout
         android:id="@+id/fragment_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@id/bubbleTabBar" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

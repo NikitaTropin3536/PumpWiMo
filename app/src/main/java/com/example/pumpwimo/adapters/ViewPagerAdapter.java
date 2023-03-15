@@ -80,7 +80,6 @@ public class ViewPagerAdapter extends PagerAdapter {
         return view;
     }
 
-
     @Override
     public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
         container.removeView((RelativeLayout) object);

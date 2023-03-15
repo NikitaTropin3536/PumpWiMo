@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
             binding.indicatorLayout.addView(dots[i]);
         }
 
-        dots[position].setTextColor(getResources().getColor(R.color.teal_200, getApplicationContext().getTheme()));
+        dots[position].setTextColor(getResources().getColor(R.color.primary, getApplicationContext().getTheme()));
     }
 
     ViewPager.OnPageChangeListener viewListener = new ViewPager.OnPageChangeListener() {

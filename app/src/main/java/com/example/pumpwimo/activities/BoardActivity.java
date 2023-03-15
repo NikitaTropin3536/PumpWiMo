@@ -21,7 +21,11 @@ public class BoardActivity extends AppCompatActivity {
     private ActivityBoardBinding binding;
 
     private static final String TAG = BoardActivity.class.getSimpleName();
-    private FragmentManager fragmentManager;
+
+//    private Homefragment homefragment = new Homefragment();
+//    private ProfileFragment profileFragment = new ProfileFragment();
+//    private SettingsFragment settingsFragment = new SettingsFragment();
+    private FragmentManager fragmentManager = getSupportFragmentManager();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +36,7 @@ public class BoardActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Homefragment()).commit();
+        fragmentManager.beginTransaction().replace(R.id.fragment_container, new Homefragment()).commit();
 
         // панель навигации
         binding.bubbleTabBar.addBubbleListener(new OnBubbleClickListener() {
@@ -52,8 +56,7 @@ public class BoardActivity extends AppCompatActivity {
                 }
                 if (selectedFragment != null) {
                     fragmentManager = getSupportFragmentManager();
-                    fragmentManager.beginTransaction()
-                            .replace(R.id.fragment_container, selectedFragment).commit();
+                    fragmentManager.beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
                 } else {
                     Log.e(TAG, "Error in creating fragment");
                 }

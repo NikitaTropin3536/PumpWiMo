@@ -20,37 +20,4 @@
         <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
     </style>
 
-    // settings
-    <style name="nightModeSwitch" parent="Theme.AppCompat.Light">
-        <item name="colorControlActivated">@color/night_mode</item>
-        <item name="colorSwitchThumbNormal">@color/colorWhite</item>
-        <item name="android:colorForeground">#99FFFFFF</item>
-    </style>
-
-    <style name="notificationsSwitch" parent="Theme.AppCompat.Light">
-        <item name="colorControlActivated">@color/notification</item>
-        <item name="colorSwitchThumbNormal">@color/colorWhite</item>
-        <item name="android:colorForeground">#99FFFFFF</item>
-    </style>
-
-    <style name="privateAccountSwitch" parent="Theme.AppCompat.Light">
-        <item name="colorControlActivated">@color/private_account</item>
-        <item name="colorSwitchThumbNormal">@color/colorWhite</item>
-        <item name="android:colorForeground">#99FFFFFF</item>
-    </style>
-
-    // textInputLayout
-    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/black</item>
-        <item name="colorPrimaryDark">@color/black</item>
-        <item name="colorAccent">@color/black</item>
-    </style>
-
-    // rounded
-    <style name="Rounded" parent="ShapeAppearance.MaterialComponents.SmallComponent">
-        <item name="cornerFamily">rounded</item>
-        <item name="cornerSize">16dp</item>
-    </style>
-
 </resources>
