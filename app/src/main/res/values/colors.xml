@@ -52,4 +52,6 @@
     <color name="material_drawer_selected_text">#2196F3</color>
     <color name="material_drawer_header_selection_text">@color/colorAccent</color>
     <color name="material_drawer_header_selection_subtext">@color/colorAccentDark</color>
+
+    <color name="main_3">#FB710E</color>
 </resources>

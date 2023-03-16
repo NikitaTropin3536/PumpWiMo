@@ -10,21 +10,38 @@
         android:id="@+id/titleImage"
         android:layout_width="200dp"
         android:layout_height="320dp"
-        android:layout_marginLeft="40dp"
+        android:layout_marginLeft="50dp"
         android:layout_marginTop="20dp"
-        android:src="@drawable/smile" />
+        android:src="@drawable/bear" />
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="250dp"
+        android:layout_marginTop="2dp"
+        android:src="@drawable/mini_logo" />
+
+    <TextView
+        android:id="@+id/sward"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="290dp"
+        android:layout_marginTop="1dp"
+        android:text="Давайте познакомимся!"
+        android:textColor="@color/colorBlack"
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/textTitle"
         android:layout_width="370dp"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="70dp"
         android:layout_marginEnd="100dp"
         android:text="Добро пожаловать в PUMPWIMO!"
         android:textAlignment="center"
         android:textColor="@color/black"
-        android:textSize="27sp"
+        android:textSize="23sp"
         android:textStyle="bold" />
 
     <TextView
@@ -32,11 +49,11 @@
         android:layout_width="378dp"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="89dp"
+        android:layout_marginTop="134dp"
         android:layout_marginEnd="100dp"
         android:text="Давайте мы покажем, чем можем Вас развлечь!"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="18sp"
-        android:textStyle="bold" />
+        android:textStyle="italic" />
 </RelativeLayout>

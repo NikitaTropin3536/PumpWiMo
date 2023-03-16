@@ -52,4 +52,5 @@
         <item name="colorSwitchThumbNormal">@color/colorWhite</item>
         <item name="android:colorForeground">#99FFFFFF</item>
     </style>
+
 </resources>

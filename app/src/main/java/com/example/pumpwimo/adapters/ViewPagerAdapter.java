@@ -19,11 +19,11 @@ public class ViewPagerAdapter extends PagerAdapter {
 
     // изобржения
     int[] images = {
-            R.drawable.smile,
+            R.drawable.bear,
             R.drawable.quest,
             R.drawable.rating,
             R.drawable.friends,
-            R.drawable.present
+            R.drawable.reward
     };
 
     // заголовки
@@ -42,6 +42,15 @@ public class ViewPagerAdapter extends PagerAdapter {
             R.string.third_slide_description,
             R.string.fourth_slide_description,
             R.string.fifth_slide_description
+    };
+
+    // сводки
+    int[] swards = {
+            R.string.swards_first,
+            R.string.swards_second,
+            R.string.swards_third,
+            R.string.swards_fourth,
+            R.string.swards_fifth
     };
 
     public ViewPagerAdapter(Context context) {
@@ -70,10 +79,12 @@ public class ViewPagerAdapter extends PagerAdapter {
 
         TextView slideHeading = (TextView) view.findViewById(R.id.textTitle);
         TextView slideDescription = (TextView) view.findViewById(R.id.textDescription);
+        TextView sward = (TextView) view.findViewById(R.id.sward);
 
         slideTitleImage.setImageResource(images[position]);
         slideHeading.setText(headings[position]);
         slideDescription.setText(descriptions[position]);
+        sward.setText(swards[position]);
 
         container.addView(view);
 

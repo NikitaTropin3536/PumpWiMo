@@ -13,24 +13,20 @@ import com.example.pumpwimo.R;
 @SuppressLint("CustomSplashScreen")
 public class SplashScreenActivity extends AppCompatActivity {
 
-    // 1. Здесь пользователь видит заставку моего приложения
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        // наша разметка - полный экран
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.activity_splashscreen);
 
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_splashscreen);
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                // переход на MainActivity
                 Intent i = new Intent(SplashScreenActivity.this, MainActivity.class);
                 startActivity(i);
                 finish();
             }
-        }, 600);
+        }, 700);
     }
 }

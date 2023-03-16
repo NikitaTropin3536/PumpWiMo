@@ -32,14 +32,13 @@ public class MainActivity extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         binding.backBtn.setVisibility(View.INVISIBLE);
-        binding.ellipse1.setVisibility(View.INVISIBLE);
         binding.backBtn.setOnClickListener(v -> {
             if (getItem(0) > 0) {
                 binding.slideViewPager.setCurrentItem(getItem(-1), true);
             }
         });
 
-        binding.nextbtn.setOnClickListener(v -> {
+        binding.nextBtn.setOnClickListener(v -> {
             if (getItem(0) < 4) {
                 binding.slideViewPager.setCurrentItem(getItem(1), true);
             } else {
@@ -74,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
             binding.indicatorLayout.addView(dots[i]);
         }
 
-        dots[position].setTextColor(getResources().getColor(R.color.primary, getApplicationContext().getTheme()));
+        dots[position].setTextColor(getResources().getColor(R.color.colorWhite, getApplicationContext().getTheme()));
     }
 
     ViewPager.OnPageChangeListener viewListener = new ViewPager.OnPageChangeListener() {
@@ -89,10 +88,8 @@ public class MainActivity extends AppCompatActivity {
 
             if (position == 0) {
                 binding.backBtn.setVisibility(View.INVISIBLE);
-                binding.ellipse1.setVisibility(View.INVISIBLE);
             } else if (position >= 1) {
                 binding.backBtn.setVisibility(View.VISIBLE);
-                binding.ellipse1.setVisibility(View.VISIBLE);
             } else {
                 binding.backBtn.setVisibility(View.INVISIBLE);
             }
