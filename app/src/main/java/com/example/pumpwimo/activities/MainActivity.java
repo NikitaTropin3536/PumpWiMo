@@ -42,13 +42,13 @@ public class MainActivity extends AppCompatActivity {
             if (getItem(0) < 4) {
                 binding.slideViewPager.setCurrentItem(getItem(1), true);
             } else {
-                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                Intent intent = new Intent(MainActivity.this, Activity_Intermediate.class);
                 startActivity(intent);
             }
         });
 
         binding.skipButton.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+            Intent intent = new Intent(MainActivity.this, Activity_Intermediate.class);
             startActivity(intent);
         });
 
