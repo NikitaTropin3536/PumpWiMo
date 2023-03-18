@@ -1,21 +1,10 @@
 <resources>
     <string name="app_name">PumpWiMo</string>
 
-    // для кнопок авторизации и регистрации
-    <string name="create_account">Создать Аккаунт</string>
-    <string name="enter">Войти</string>
-    <string name="fulfill_your_dream">Исполни свою мечту!</string>
-    <string name="welcome">Привет!</string>
-    <string name="your_email">Твой email (..@..)</string>
-    <string name="password">Пароль (>8 символов)</string>
-    <string name="your_nickname">Твой ник</string>
-    <string name="forgot_password">Забыл пароль?</string>
-    <string name="begin_to_purpose">Начни путь к цели!</string>
-
     // для BoardActivity
     <string name="home">Home</string>
     <string name="settings">Settings</string>
-    <string name="user">User</string>
+    <string name="profile">Profile</string>
     <string name="good_morning">Привет, друг!</string>
     <string name="search">Search</string>
 
@@ -27,11 +16,11 @@
     <string name="fifth_slide_heading">Что же вы получите?</string>
 
     // slides_descriptions
-    <string name="first_slide_description">Мотивация\nПрокачка силы воли\nУвлекательные задания</string>
-    <string name="second_slide_description">В нашем приложении более 100 уникальных квестов по прокачке силы воли. Рискнёте пройти их все и получить главный приз?</string>
-    <string name="third_slide_description">Соревнуйтесь с другими в выполнении заданий. Кто же станет первым?</string>
-    <string name="fourth_slide_description">Можно проходить задания вместе с друзьями. Соберите свою команду!</string>
-    <string name="fifth_slide_description">Награды - это мотивация. Все, что вы делаете, принесёт вам уникальные призы!</string>
+    <string name="first_slide_description">Мотивация\nПрокачка силы воли\nИ многое другое… в нашем приложении</string>
+    <string name="second_slide_description">В нас есть более 100 уникальных квестов по прокачке силы воли. Рискнёте пройти их все и получить главный приз?</string>
+    <string name="third_slide_description">У Вас много соперников. Дайте им отпор!</string>
+    <string name="fourth_slide_description">Намного интереснее играть в команде. Соберите ее и вперед… нвстречу приключениям!</string>
+    <string name="fifth_slide_description">За проделанную работу полагаются награды. И они у нас тоже есть!</string>
 
     // swards
     <string name="swards_first">Давайте познакомимся!</string>
@@ -46,4 +35,5 @@
     <string name="fourth_fragment_description">а</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>

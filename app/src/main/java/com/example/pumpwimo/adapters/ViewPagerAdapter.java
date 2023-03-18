@@ -19,7 +19,7 @@ public class ViewPagerAdapter extends PagerAdapter {
 
     // изобржения
     int[] images = {
-            R.drawable.bear,
+            R.drawable.hi,
             R.drawable.quest,
             R.drawable.rating,
             R.drawable.friends,

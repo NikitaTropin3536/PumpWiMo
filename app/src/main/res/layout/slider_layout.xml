@@ -10,7 +10,7 @@
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginStart="70dp"
-        android:layout_marginTop="2dp"
+        android:layout_marginTop="5dp"
         android:src="@drawable/mini_logo" />
 
     <TextView
@@ -18,9 +18,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="105dp"
-        android:layout_marginTop="1dp"
+        android:layout_marginTop="7dp"
         android:text="Давайте познакомимся!"
-        android:textColor="@color/colorBlack"
+        android:textColor="@color/colorWhite"
         android:textSize="20sp" />
 
     <ImageView
@@ -36,10 +36,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignTop="@id/titleImage"
-        android:layout_marginTop="350dp"
+        android:layout_marginTop="400dp"
         android:text="Добро пожаловать в PumpWiMo!"
         android:textAlignment="center"
-        android:textColor="@color/black"
+        android:textColor="@color/colorBlack"
         android:textSize="24sp"
         android:textStyle="bold" />
 
@@ -49,10 +49,10 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@id/titleImage"
         android:layout_marginHorizontal="30dp"
-        android:layout_marginTop="420dp"
+        android:layout_marginTop="467dp"
         android:text="Давайте мы покажем, чем можем Вас развлечь!"
         android:textAlignment="center"
-        android:textStyle="italic"
-        android:textColor="@color/black"
-        android:textSize="18sp" />
+        android:textColor="@color/colorBlack"
+        android:textSize="20sp"
+        android:textStyle="italic" />
 </RelativeLayout>

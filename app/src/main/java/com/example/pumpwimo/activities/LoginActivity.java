@@ -9,6 +9,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.WindowManager;
 
+import com.example.pumpwimo.R;
 import com.example.pumpwimo.databinding.ActivityLoginBinding;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -51,6 +52,11 @@ public class LoginActivity extends AppCompatActivity {
          */
         // табличка Users - пользователи
         users = db.getReference("Users");
+
+        binding.guest.setOnClickListener(v -> {
+            startActivity(new Intent(LoginActivity.this, BoardActivity.class));
+            finish();
+        });
 
         binding.signInBtn.setOnClickListener(v -> {
             check();
@@ -99,5 +105,11 @@ public class LoginActivity extends AppCompatActivity {
         }
         Log.v("Permission", "permission == " + permission);
         Log.i("Check", "check == end");
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
     }
 }

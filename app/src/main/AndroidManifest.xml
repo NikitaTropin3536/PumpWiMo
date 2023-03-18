@@ -15,6 +15,13 @@
         android:theme="@style/Theme.PumpWiMo"
         tools:targetApi="33">
         <activity
+            android:name=".QuestActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".activities.Activity_Intermediate"
             android:exported="false">
             <meta-data

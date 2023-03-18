@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
     ViewPagerAdapter viewPagerAdapter;
 
+    public static int whatIsIt;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,25 +32,37 @@ public class MainActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        binding.backBtn.setVisibility(View.INVISIBLE);
-        binding.backBtn.setOnClickListener(v -> {
+        binding.back.setVisibility(View.INVISIBLE);
+        binding.back.setOnClickListener(v -> {
             if (getItem(0) > 0) {
                 binding.slideViewPager.setCurrentItem(getItem(-1), true);
             }
         });
 
-        binding.nextBtn.setOnClickListener(v -> {
+        binding.next.setOnClickListener(v -> {
             if (getItem(0) < 4) {
                 binding.slideViewPager.setCurrentItem(getItem(1), true);
             } else {
                 Intent intent = new Intent(MainActivity.this, Activity_Intermediate.class);
+                whatIsIt = 2;
                 startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
 
-        binding.skipButton.setOnClickListener(v -> {
+        binding.skip.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, Activity_Intermediate.class);
-            startActivity(intent);
+
+            if (getItem(0) == 4) {
+                whatIsIt = 2;
+                startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+            }
+            else if (getItem(0) < 4) {
+                whatIsIt = 1;
+                startActivity(intent);
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+            }
         });
 
         viewPagerAdapter = new ViewPagerAdapter(this);
@@ -69,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
             dots[i] = new TextView(this);
             dots[i].setText(Html.fromHtml("&#8226"));
             dots[i].setTextSize(35);
-            dots[i].setTextColor(getResources().getColor(R.color.colorGrey, getApplicationContext().getTheme()));
+            dots[i].setTextColor(getResources().getColor(R.color.colorBlack, getApplicationContext().getTheme()));
             binding.indicatorLayout.addView(dots[i]);
         }
 
@@ -87,11 +100,11 @@ public class MainActivity extends AppCompatActivity {
             setUpIndicator(position);
 
             if (position == 0) {
-                binding.backBtn.setVisibility(View.INVISIBLE);
+                binding.back.setVisibility(View.INVISIBLE);
             } else if (position >= 1) {
-                binding.backBtn.setVisibility(View.VISIBLE);
+                binding.back.setVisibility(View.VISIBLE);
             } else {
-                binding.backBtn.setVisibility(View.INVISIBLE);
+                binding.back.setVisibility(View.INVISIBLE);
             }
         }
 
@@ -104,5 +117,12 @@ public class MainActivity extends AppCompatActivity {
     // 1.Почему мы прибавляем i?
     private int getItem(int i) {
         return binding.slideViewPager.getCurrentItem() + i;
+    }
+
+    @Override
+    public void onBackPressed()
+    {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
     }
 }

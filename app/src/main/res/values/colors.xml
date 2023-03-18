@@ -9,15 +9,18 @@
     <color name="black">#FF000000</color>
     <color name="colorWhite">#FFFFFFFF</color>
     <color name="white">#FFFFFFFF</color>
+
     // основные цвета приложения
-    <color name="main_bg1">#040303</color>
-    <color name="main_bg2">#131212</color>
+    <color name="main_3">#FB710E</color>
 
     // для регистрации
     <color name="colorLayerDark">#D6000000</color>
     <color name="colorLayerSemiDark">#60000000</color>
     <color name="colorSuccess">#4BB543</color>
 
+    <color name="colorPrimary_2">#00AC28</color>
+    <color name="colorPrimaryDark_2">#09d639</color>
+    <color name="colorAccent_2">#03DAC5</color>
     // settings
     <color name="primary">#10C9E1</color>
     <color name="secondary">#FF03DAC5</color>
@@ -26,8 +29,7 @@
     <color name="private_account">#E6A326</color>
     <color name="security">#D95F69</color>
 
-
-    // collors_twitter
+    // twitter
     <color name="colorPrimary">#0088CC</color>
     <color name="colorPrimaryDark">#0052CC</color>
     <color name="colorAccent">#FFFFFF</color>
@@ -52,6 +54,4 @@
     <color name="material_drawer_selected_text">#2196F3</color>
     <color name="material_drawer_header_selection_text">@color/colorAccent</color>
     <color name="material_drawer_header_selection_subtext">@color/colorAccentDark</color>
-
-    <color name="main_3">#FB710E</color>
 </resources>

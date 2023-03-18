@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <style name="settingsButtons">
         <item name="android:layout_width">320dp</item>
         <item name="android:layout_height">50dp</item>
         <item name="android:layout_marginTop">@dimen/vertical_margin</item>
         <item name="android:clickable">true</item>
-        <item name="android:background">@drawable/ripple_effect_settings</item>
+<!--        <item name="android:background">@drawable/ripple_effect_settings</item>-->
         <item name="android:focusable">true</item>
     </style>
 
