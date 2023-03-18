@@ -52,7 +52,7 @@ public class LoginActivity extends AppCompatActivity {
         // табличка Users - пользователи
         users = db.getReference("Users");
 
-        binding.buttonLogin.setOnClickListener(v -> {
+        binding.signInBtn.setOnClickListener(v -> {
             check();
 
             switch ((permission)) {
@@ -65,7 +65,7 @@ public class LoginActivity extends AppCompatActivity {
                     Log.v("text", STRING_2);
                     break;
                 case 3:
-                    auth.signInWithEmailAndPassword(binding.inputEmail.getText().toString(), binding.inputPassword.getText().toString())
+                    auth.signInWithEmailAndPassword(binding.usernameET.getText().toString(), binding.usernameET.getText().toString())
                             .addOnSuccessListener(new OnSuccessListener<AuthResult>() { // успешная авторизация
                                 @Override
                                 public void onSuccess(AuthResult authResult) {
@@ -82,20 +82,19 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         // создать аккаунт
-        binding.buttonCreateAccount.setOnClickListener(v -> {
+        binding.signUpBtn.setOnClickListener(v -> {
             Intent i = new Intent(LoginActivity.this, RegistrationActivity.class);
             startActivity(i);
-            finish();
         });
     }
 
     private void check() {
-        if (TextUtils.isEmpty(binding.inputEmail.getText().toString())
-                || TextUtils.isEmpty(binding.inputPassword.getText().toString())) {
+        if (TextUtils.isEmpty(binding.usernameET.getText().toString())
+                || TextUtils.isEmpty(binding.passwordET.getText().toString())) {
             permission = 1; // введите данные полностью
-        } else if (!binding.inputEmail.getText().toString().contains("@") || binding.inputPassword.getText().toString().length() <= 8) {
+        } else if (!binding.usernameET.getText().toString().contains("@") || binding.passwordET.getText().toString().length() <= 8) {
             permission = 2; // учтите требования
-        } else if (binding.inputEmail.getText().toString().contains("@") && binding.inputPassword.getText().toString().length() > 8) {
+        } else if (binding.usernameET.getText().toString().contains("@") && binding.passwordET.getText().toString().length() > 8) {
             permission = 3; // разрешение
         }
         Log.v("Permission", "permission == " + permission);

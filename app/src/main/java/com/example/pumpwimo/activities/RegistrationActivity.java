@@ -16,8 +16,8 @@ import android.view.WindowManager;
 import android.widget.Button;
 
 import com.example.pumpwimo.R;
-import com.example.pumpwimo.databinding.ActivityRegistrationBinding;
 
+import com.example.pumpwimo.databinding.ActivityRegistrationBinding;
 import com.example.pumpwimo.models.User;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.snackbar.Snackbar;
@@ -62,23 +62,23 @@ public class RegistrationActivity extends AppCompatActivity {
         users = db.getReference("Users");
 
         // обработка нажатия на кнопку создания аккаунта
-        binding.buttonCreateAccount.setOnClickListener(v -> {
+        binding.createAcc.setOnClickListener(v -> {
             check(); // 1. проверка требований
 
             // 2. совпадение - не думаю
             switch (permission) {
                 case 1:
-                    Snackbar.make(binding.registrationLayout, STRING_1, Snackbar.LENGTH_SHORT).show();
+                    Snackbar.make(binding.registerLayout, STRING_1, Snackbar.LENGTH_SHORT).show();
                     Log.v("text", STRING_1);
                     break;
                 case 2:
-                    Snackbar.make(binding.registrationLayout, STRING_2, Snackbar.LENGTH_SHORT).show();
+                    Snackbar.make(binding.registerLayout, STRING_2, Snackbar.LENGTH_SHORT).show();
                     Log.v("text", STRING_2);
                     break;
                 case 3:
 
                     // Регистрация пользователя
-                    auth.createUserWithEmailAndPassword(binding.inputEmail.getText().toString(), binding.inputPassword.getText().toString())
+                    auth.createUserWithEmailAndPassword(binding.mailET.getText().toString(), binding.passwordET.getText().toString())
                             .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                                 /*
                                 обработчик события, который вызовет функцию onSuccess только в том случае,
@@ -87,10 +87,10 @@ public class RegistrationActivity extends AppCompatActivity {
                                 @Override
                                 public void onSuccess(AuthResult authResult) {
                                     User user = new User();
-                                    user.setEmail(binding.inputEmail.getText().toString());
-                                    user.setPassword(binding.inputPassword.getText().toString());
-                                    user.setPhone(binding.yourTelephone.getText().toString());
-                                    user.setNickName(binding.nickName.getText().toString());
+                                    user.setEmail(binding.mailET.getText().toString());
+                                    user.setPassword(binding.passwordET.getText().toString());
+                                    user.setPhone(binding.telephoneET.getText().toString());
+                                    user.setNickName(binding.nameET.getText().toString());
 
                                      /*
                                     добавляем нового пользователя в табличку users,
@@ -116,14 +116,14 @@ public class RegistrationActivity extends AppCompatActivity {
 
     // check() проверяет введённые данные на соответствие требованиям
     private void check() {
-        if (TextUtils.isEmpty(binding.inputEmail.getText().toString())
-                || TextUtils.isEmpty(binding.inputPassword.getText().toString())
-                || TextUtils.isEmpty(binding.yourTelephone.getText().toString())
-                || TextUtils.isEmpty(binding.nickName.getText().toString())) {
+        if (TextUtils.isEmpty(binding.mailET.getText().toString())
+                || TextUtils.isEmpty(binding.passwordET.getText().toString())
+                || TextUtils.isEmpty(binding.telephoneET.getText().toString())
+                || TextUtils.isEmpty(binding.nameET.getText().toString())) {
             permission = 1; // введите данные полностью
-        } else if (!binding.inputEmail.getText().toString().contains("@") || binding.inputPassword.getText().toString().length() <= 8) {
+        } else if (!binding.mailET.getText().toString().contains("@") || binding.passwordET.getText().toString().length() <= 8) {
             permission = 2; // учтите требования
-        } else if (binding.inputEmail.getText().toString().contains("@") && binding.inputPassword.getText().toString().length() > 8) {
+        } else if (binding.mailET.getText().toString().contains("@") && binding.passwordET.getText().toString().length() > 8) {
             permission = 3; // разрешение
         }
         Log.v("Permission", "permission == " + permission);
