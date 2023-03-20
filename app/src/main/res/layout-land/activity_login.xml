@@ -5,7 +5,7 @@
     android:id="@+id/login_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/l_bg_2"
+    android:background="@drawable/login_back"
     android:orientation="vertical"
     tools:context=".activities.LoginActivity">
 
@@ -22,10 +22,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="20dp"
                 android:text="Войти"
                 android:textColor="@color/colorWhite"
-                android:textSize="35sp"
+                android:textSize="34sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -33,11 +33,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/come"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="15dp"
                 android:layout_centerHorizontal="true"
                 android:text="Пожалуйста, войдите в аккаунт"
                 android:textColor="@color/colorWhite"
-                android:textSize="23sp" />
+                android:textSize="22sp" />
 
             <EditText
                 android:id="@+id/usernameET"
@@ -107,8 +107,9 @@
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/signInBtn"
-                android:layout_width="match_parent"
+                android:layout_width="300dp"
                 android:layout_height="55dp"
+                android:gravity="center"
                 android:layout_below="@id/forgotPasswordBtn"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="30dp"
@@ -116,7 +117,7 @@
                 android:background="@drawable/round_back_primary"
                 android:text="Войти"
                 android:textAllCaps="false"
-                android:textColor="@color/colorWhite"
+                android:textColor="@color/black"
                 android:textSize="23sp" />
 
             <RelativeLayout

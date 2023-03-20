@@ -5,7 +5,7 @@
     android:id="@+id/login_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/l_bg"
+    android:background="@drawable/login_back"
     android:gravity="center"
     android:orientation="vertical"
     tools:context=".activities.LoginActivity">
@@ -14,6 +14,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Войти"
+        android:layout_marginTop="20dp"
         android:textColor="@color/colorWhite"
         android:textSize="34sp"
         android:textStyle="bold" />
@@ -21,34 +22,57 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
+        android:layout_marginTop="15dp"
         android:text="Пожалуйста, войдите в аккаунт"
         android:textColor="@color/colorWhite"
-        android:textSize="21sp" />
+        android:textSize="22sp" />
 
-    <EditText
-        android:id="@+id/usernameET"
+    <RelativeLayout
+        android:id="@+id/emailRelativeLayout"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="20dp"
         android:background="@drawable/round_back"
-        android:hint="Email"
-        android:inputType="textEmailAddress"
-        android:maxLines="1"
-        android:paddingStart="20dp"
-        android:paddingEnd="20dp"
-        android:textColorHint="@color/black"
-        android:textSize="16sp" />
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="20dp">
+
+        <ImageView
+            android:layout_width="26dp"
+            android:paddingStart="10dp"
+            android:layout_height="56dp"
+            android:src="@drawable/email"
+            tools:ignore="RtlSymmetry">
+        </ImageView>
+
+        <EditText
+            android:id="@+id/usernameET"
+            android:layout_width="match_parent"
+            android:layout_marginEnd="15dp"
+            android:layout_height="55dp"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:maxLines="1"
+            android:background="@android:color/transparent"
+            android:layout_marginStart="40dp"
+            android:textColorHint="@color/black"
+            android:textSize="16sp" />
+    </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="55dp"
+        android:layout_marginTop="40dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="50dp"
         android:layout_marginEnd="20dp"
         android:background="@drawable/round_back">
+
+        <ImageView
+            android:layout_width="26dp"
+            android:paddingStart="7dp"
+            android:layout_height="56dp"
+            android:src="@drawable/pass"
+            tools:ignore="RtlSymmetry">
+        </ImageView>
 
         <EditText
             android:id="@+id/passwordET"
@@ -59,8 +83,7 @@
             android:hint="Пароль"
             android:inputType="textPassword"
             android:maxLines="1"
-            android:paddingStart="20dp"
-            android:paddingEnd="20dp"
+            android:layout_marginStart="40dp"
             android:textColorHint="@color/black"
             android:textSize="16sp" />
 
@@ -73,7 +96,7 @@
             android:layout_marginEnd="20dp"
             android:adjustViewBounds="true"
             android:padding="10dp"
-            android:src="@drawable/password_show" />
+            android:src="@drawable/password_hide" />
     </RelativeLayout>
 
     <TextView
@@ -81,23 +104,24 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="60dp"
         android:layout_marginEnd="30dp"
+        android:textStyle="bold"
         android:text="Забыли пароль?"
         android:textColor="@color/colorWhite"
         android:textSize="17sp" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/signInBtn"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="55dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:layout_marginEnd="20dp"
         android:background="@drawable/round_back_primary"
         android:text="Войти"
         android:textAllCaps="false"
-        android:textColor="@color/colorWhite"
+        android:textColor="@color/colorBlack"
         android:textSize="23sp" />
 
     <RelativeLayout
@@ -114,15 +138,15 @@
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:layout_toStartOf="@+id/orTxt"
-            android:background="#1A000000" />
+            android:background="@color/colorWhite" />
 
         <TextView
             android:id="@+id/orTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="OR"
-            android:textColor="#FB710E"
+            android:text="или"
+            android:textColor="@color/colorWhite"
             android:textSize="16sp" />
 
         <View
@@ -132,7 +156,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:layout_toEndOf="@+id/orTxt"
-            android:background="#1A000000" />
+            android:background="@color/colorWhite"/>
     </RelativeLayout>
 
     <RelativeLayout
@@ -168,7 +192,7 @@
         android:layout_width="match_parent"
         android:layout_height="36dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="30dp"
         android:layout_marginEnd="20dp"
         android:background="@drawable/round_back">
 
@@ -202,7 +226,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Нет аккаунта?"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="16sp" />
 
         <TextView
@@ -211,7 +235,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="7dp"
             android:text="Зарегистрироваться"
-            android:textColor="#FB710E"
+            android:textColor="@color/white"
             android:textSize="16sp"
             android:textStyle="bold" />
     </LinearLayout>

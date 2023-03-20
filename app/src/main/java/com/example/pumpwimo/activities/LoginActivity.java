@@ -51,17 +51,19 @@ public class LoginActivity extends AppCompatActivity {
         Указываем название таблички, с которой мы будем работать
          */
         // табличка Users - пользователи
+
         users = db.getReference("Users");
 
         binding.guest.setOnClickListener(v -> {
             startActivity(new Intent(LoginActivity.this, BoardActivity.class));
+            overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
             finish();
         });
 
         binding.signInBtn.setOnClickListener(v -> {
             check();
 
-            switch ((permission)) {
+            switch (permission) {
                 case 1:
                     Snackbar.make(binding.loginLayout, STRING_1, Snackbar.LENGTH_SHORT).show();
                     Log.v("text", STRING_1);
@@ -71,17 +73,17 @@ public class LoginActivity extends AppCompatActivity {
                     Log.v("text", STRING_2);
                     break;
                 case 3:
-                    auth.signInWithEmailAndPassword(binding.usernameET.getText().toString(), binding.usernameET.getText().toString())
+                    auth.signInWithEmailAndPassword(binding.usernameET.getText().toString(), binding.passwordET.getText().toString())
                             .addOnSuccessListener(new OnSuccessListener<AuthResult>() { // успешная авторизация
                                 @Override
                                 public void onSuccess(AuthResult authResult) {
                                     startActivity(new Intent(LoginActivity.this, BoardActivity.class));
-                                    finish();
+                                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                                 }
                             }).addOnFailureListener(new OnFailureListener() {
                                 @Override
                                 public void onFailure(@NonNull Exception e) {
-                                    Snackbar.make(binding.loginLayout, "Неправильные данные\nВозможно Вы не зрегестрированы", Snackbar.LENGTH_SHORT).show();
+                                    Snackbar.make(binding.loginLayout, "Неправильные данные\nВозможно Вы не зарегестрированы", Snackbar.LENGTH_SHORT).show();
                                 }
                             }); //не успешное добавление пользователя
             }
@@ -107,6 +109,7 @@ public class LoginActivity extends AppCompatActivity {
         Log.i("Check", "check == end");
     }
 
+    // для кнопки back
     @Override
     public void onBackPressed() {
         super.onBackPressed();
