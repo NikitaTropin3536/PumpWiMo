@@ -1,38 +1,32 @@
 package com.example.pumpwimo.activities;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
-import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
 import android.view.WindowManager;
-import android.widget.Button;
-
 import com.example.pumpwimo.R;
-
+import com.example.pumpwimo.database.User;
+import com.example.pumpwimo.database.UserDao;
+import com.example.pumpwimo.database.UserDatabaseApplication;
 import com.example.pumpwimo.databinding.ActivityRegistrationBinding;
-import com.example.pumpwimo.models.User;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import java.util.Objects;
 
-public class RegistrationActivity extends AppCompatActivity {
+public class  RegistrationActivity extends AppCompatActivity {
 
     private ActivityRegistrationBinding binding;
 
     private FirebaseAuth auth; // для авторизации
-
-    private FirebaseDatabase db; // для подключения к базе даннных
 
     private DatabaseReference users; // для работы с табличками внутри бд
 
@@ -41,7 +35,12 @@ public class RegistrationActivity extends AppCompatActivity {
     private final static String STRING_1 = "Введите данные полностью";
     private final static String STRING_2 = "Учтите требования";
 
-    @SuppressLint("ShowToast")
+    @SuppressLint("HardwareIds")
+    private final String andrId = Settings.Secure.getString(getContentResolver(), Settings.Secure.ANDROID_ID);
+    private final String password_cor = doUnPassword();
+
+    private UserDao userDao = UserDatabaseApplication.getUserDatabase().userDao();
+    @SuppressLint({"ShowToast", "HardwareIds"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,7 +52,8 @@ public class RegistrationActivity extends AppCompatActivity {
 
         // теперь мы поместим данные в наши переменные
         auth = FirebaseAuth.getInstance(); // запускаем авторизацию в бд
-        db = FirebaseDatabase.getInstance(); // подключаемся к бд
+        // для подключения к базе даннных
+        FirebaseDatabase db = FirebaseDatabase.getInstance(); // подключаемся к бд
 
         /*
         Указываем название таблички, с которой мы будем работать
@@ -78,7 +78,8 @@ public class RegistrationActivity extends AppCompatActivity {
                 case 3:
 
                     // Регистрация пользователя
-                    auth.createUserWithEmailAndPassword(binding.mailET.getText().toString(), binding.passwordET.getText().toString())
+                    assert binding.mailET != null;
+                    auth.createUserWithEmailAndPassword(binding.mailET.getText().toString(), password_cor)
                             .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                                 /*
                                 обработчик события, который вызовет функцию onSuccess только в том случае,
@@ -86,25 +87,28 @@ public class RegistrationActivity extends AppCompatActivity {
                                 */
                                 @Override
                                 public void onSuccess(AuthResult authResult) {
-                                    User user = new User();
-                                    user.setEmail(binding.mailET.getText().toString());
-                                    user.setPassword(binding.passwordET.getText().toString());
-                                    user.setPhone(binding.telephoneET.getText().toString());
-                                    user.setNickName(binding.nameET.getText().toString());
-
+                                    User user = new User(
+                                            binding.mailET.getText().toString(),
+                                            password_cor,
+                                            binding.telephoneET.getText().toString(),
+                                            binding.nameET.getText().toString()
+                                    );
+                                    userDao.save(user); // сохраняем юзера в бд
                                      /*
                                     добавляем нового пользователя в табличку users,
                                     ключ, по которому мы идентифицируем пользователя - id пользователя
                                     */
 
-                                    users.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(user)
+                                    users.child(Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid()).setValue(user)
                                             .addOnSuccessListener(new OnSuccessListener<Void>() {
                                                 /*
                                                 обработчик события, который срботает, когда будет успешное добавление пользователя
                                                 */
                                                 @Override
                                                 public void onSuccess(Void unused) {
-                                                    // Написать НАШЕ УВЕДОМЛЕНИЕ!!!!!!!!!!
+                                                    Intent intent = new Intent(RegistrationActivity.this, BoardActivity.class);
+                                                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                                                    finish();
                                                 }
                                             });
 
@@ -116,43 +120,37 @@ public class RegistrationActivity extends AppCompatActivity {
 
     // check() проверяет введённые данные на соответствие требованиям
     private void check() {
+        assert binding.mailET != null;
         if (TextUtils.isEmpty(binding.mailET.getText().toString())
                 || TextUtils.isEmpty(binding.passwordET.getText().toString())
                 || TextUtils.isEmpty(binding.telephoneET.getText().toString())
                 || TextUtils.isEmpty(binding.nameET.getText().toString())) {
             permission = 1; // введите данные полностью
-        } else if (!binding.mailET.getText().toString().contains("@") || binding.passwordET.getText().toString().length() <= 8) {
+        } else if (!binding.mailET.getText().toString().contains("@") || password_cor.length() < 8) {
             permission = 2; // учтите требования
-        } else if (binding.mailET.getText().toString().contains("@") && binding.passwordET.getText().toString().length() > 8) {
+        } else if (binding.mailET.getText().toString().contains("@")
+        && binding.passwordET.getText().toString().length() >= 8) {
             permission = 3; // разрешение
         }
+
         Log.v("Permission", "permission == " + permission);
         Log.i("Check", "check == end");
-    }
-
-    private void showTheDialog() {
-        // создем диалоговое окно
-        AlertDialog.Builder dialog = new AlertDialog.Builder(getApplicationContext());
-
-        View register_confimation_window = getLayoutInflater().inflate(R.layout.register_confirmation_window, null);
-
-        Button buttonAction = register_confimation_window.findViewById(R.id.buttonAction);
-
-        buttonAction.setOnClickListener(v -> {
-            Intent intent = new Intent(RegistrationActivity.this, BoardActivity.class);
-            startActivity(intent);
-            finish();
-        });
-
-        dialog.setView(register_confimation_window);
-        AlertDialog dialog2 = dialog.create();
-        dialog2.show();
-        //
     }
 
     @Override
     public void onBackPressed() {
         super.onBackPressed();
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+    }
+
+    // делаем уникальный пароль
+    private String doUnPassword() {
+        // берем введенный пароль
+        assert binding != null;
+        String password = binding.passwordET.getText().toString();
+
+        String password_cor; // конечный пароль
+        password_cor = password;
+        return password_cor;
     }
 }

@@ -3,13 +3,18 @@ package com.example.pumpwimo.activities;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.WindowManager;
 
 import com.example.pumpwimo.R;
+import com.example.pumpwimo.database.UserDao;
+import com.example.pumpwimo.database.UserDatabaseApplication;
 import com.example.pumpwimo.databinding.ActivityLoginBinding;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -25,15 +30,12 @@ public class LoginActivity extends AppCompatActivity {
 
     private FirebaseAuth auth; // для авторизации
 
-    private FirebaseDatabase db; // для подключения к базе даннных
-
-    private DatabaseReference users; // для работы с табличками внутри бд
-
     private int permission; // переменная для проверки
 
     private final static String STRING_1 = "Введите данные полностью";
     private final static String STRING_2 = "Учтите требования";
 
+    private UserDao userDao = UserDatabaseApplication.getUserDatabase().userDao();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,18 +47,20 @@ public class LoginActivity extends AppCompatActivity {
 
         // теперь мы поместим данные в наши переменные
         auth = FirebaseAuth.getInstance(); // запускаем авторизацию в бд
-        db = FirebaseDatabase.getInstance(); // подключаемся к бд
+        // для подключения к базе даннных
+        FirebaseDatabase db = FirebaseDatabase.getInstance(); // подключаемся к бд
 
         /*
         Указываем название таблички, с которой мы будем работать
          */
         // табличка Users - пользователи
 
-        users = db.getReference("Users");
+        // для работы с табличками внутри бд
+        DatabaseReference users = db.getReference("Users");
 
         binding.guest.setOnClickListener(v -> {
             startActivity(new Intent(LoginActivity.this, BoardActivity.class));
-            overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             finish();
         });
 
@@ -73,19 +77,27 @@ public class LoginActivity extends AppCompatActivity {
                     Log.v("text", STRING_2);
                     break;
                 case 3:
-                    auth.signInWithEmailAndPassword(binding.usernameET.getText().toString(), binding.passwordET.getText().toString())
-                            .addOnSuccessListener(new OnSuccessListener<AuthResult>() { // успешная авторизация
-                                @Override
-                                public void onSuccess(AuthResult authResult) {
-                                    startActivity(new Intent(LoginActivity.this, BoardActivity.class));
-                                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-                                }
-                            }).addOnFailureListener(new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull Exception e) {
-                                    Snackbar.make(binding.loginLayout, "Неправильные данные\nВозможно Вы не зарегестрированы", Snackbar.LENGTH_SHORT).show();
-                                }
-                            }); //не успешное добавление пользователя
+                    ConnectivityManager connManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+                    NetworkInfo mWifi = connManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
+                    // если есть wi - fi вход через firebase
+                    if (mWifi.isConnected()) {
+                        auth.signInWithEmailAndPassword(binding.usernameET.getText().toString(), binding.passwordET.getText().toString())
+                                .addOnSuccessListener(new OnSuccessListener<AuthResult>() { // успешная авторизация
+                                    @Override
+                                    public void onSuccess(AuthResult authResult) {
+                                        startActivity(new Intent(LoginActivity.this, BoardActivity.class));
+                                        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                                        finish();
+                                    }
+                                }).addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+                                        Snackbar.make(binding.loginLayout, "Неправильные данные\nВозможно Вы не зарегестрированы", Snackbar.LENGTH_SHORT).show();
+                                    }
+                                }); //не успешное добавление пользователя
+                    } else {
+                        // проверяем даннные через бд устройства
+                    }
             }
         });
 
@@ -115,4 +127,5 @@ public class LoginActivity extends AppCompatActivity {
         super.onBackPressed();
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
     }
+
 }

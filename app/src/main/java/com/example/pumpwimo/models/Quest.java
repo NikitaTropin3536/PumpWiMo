@@ -1,40 +1,42 @@
 package com.example.pumpwimo.models;
 
+import android.widget.ImageView;
+
 // квест
 public class Quest {
 
-    private String quest_name;
-    private int quest_rating;
-    private int quest_image;
+    private String questName; // название квеста
+    private int questDifficultyLevel; // уровень сложности кветста
+    private int questImage; // картинка квеста
 
     // Constructor
-    public Quest(String quest_name, int quest_rating, int quest_image) {
-        this.quest_name = quest_name;
-        this.quest_rating = quest_rating;
-        this.quest_image = quest_image;
+    public Quest(String questName, int questDifficultyLevel, int questImage) {
+        this.questName = questName;
+        this.questDifficultyLevel = questDifficultyLevel;
+        this.questImage = questImage;
     }
 
-    public String getQuest_name() {
-        return quest_name;
+    public String getQuestName() {
+        return questName;
     }
 
-    public int getQuest_rating() {
-        return quest_rating;
+    public int getQuestDifficultyLevel() {
+        return questDifficultyLevel;
     }
 
-    public int getQuest_image() {
-        return quest_image;
+    public int getQuestImage() {
+        return questImage;
     }
 
-    public void setQuest_name(String quest_name) {
-        this.quest_name = quest_name;
+    public void setQuestName(String questName) {
+        this.questName = questName;
     }
 
-    public void setQuest_rating(int quest_rating) {
-        this.quest_rating = quest_rating;
+    public void setQuestDifficultyLevel(int questDifficultyLevel) {
+        this.questDifficultyLevel = questDifficultyLevel;
     }
 
-    public void setQuest_image(int quest_image) {
-        this.quest_image = quest_image;
+    public void setQuestImage(int questImage) {
+        this.questImage = questImage;
     }
 }

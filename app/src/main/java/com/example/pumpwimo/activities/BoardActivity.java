@@ -1,74 +1,93 @@
 package com.example.pumpwimo.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
+import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.WindowManager;
+import android.widget.ImageView;
 
 import com.example.pumpwimo.R;
-import com.example.pumpwimo.databinding.ActivityBoardBinding;
-import com.example.pumpwimo.fragments.HomeFragment;
-import com.example.pumpwimo.fragments.ProfileFragment;
-import com.example.pumpwimo.fragments.SettingsFragment;
+import com.example.pumpwimo.adapters.ParamsAdapter;
+import com.example.pumpwimo.models.Parametr;
 
-import io.ak1.OnBubbleClickListener;
+import java.util.ArrayList;
 
 public class BoardActivity extends AppCompatActivity {
 
-    private ActivityBoardBinding binding;
+    private ArrayList<Parametr> params = new ArrayList<>();
+    private LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+    private CardView cardTask1, cardTask2, cardTask3, cardTask4, guide;
+    private RecyclerView recyclerView;
+    private ImageView menu_1, acc;
 
-    private static final String TAG = BoardActivity.class.getSimpleName();
-
-    private HomeFragment homefragment = new HomeFragment();
-    private ProfileFragment profileFragment = new ProfileFragment();
-    private SettingsFragment settingsFragment = new SettingsFragment();
-    private FragmentManager fragmentManager = getSupportFragmentManager();
-
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityBoardBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
+        setContentView(R.layout.activity_board);
 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        fragmentManager.beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
+        cardTask1 = findViewById(R.id.cardTask1);
+        cardTask2 = findViewById(R.id.cardTask2);
+        cardTask3 = findViewById(R.id.cardTask3);
+        cardTask4 = findViewById(R.id.cardTask4);
+        menu_1 = findViewById(R.id.menu_1);
+        acc = findViewById(R.id.acc);
+        guide = findViewById(R.id.cardTheGuideBook);
+        recyclerView = findViewById(R.id.recyclerview);
 
-        // панель навигации
-        binding.bubbleTabBar.addBubbleListener(new OnBubbleClickListener() {
-            @Override
-            public void onBubbleClick(int i) {
-                Fragment selectedFragment = null; // пока выбранный fragment = null
-                switch (i) {
-                    case R.id.menuProfile:
-                        selectedFragment = new ProfileFragment();
-                        break;
-                    case R.id.menuHome:
-                        selectedFragment = new HomeFragment();
-                        break;
-                    case R.id.menuSettings:
-                        selectedFragment = new SettingsFragment();
-                        break;
-                }
-                if (selectedFragment != null) {
-                    fragmentManager = getSupportFragmentManager();
-                    fragmentManager.beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
-                } else {
-                    Log.e(TAG, "Error in creating fragment");
-                }
-            }
+        // настраиваем адаптер
+        setInitialData();
+        ParamsAdapter adapter = new ParamsAdapter(params, this);
+        recyclerView.setLayoutManager(linearLayoutManager);
+        recyclerView.setAdapter(adapter);
+
+        cardTask1.setOnClickListener(v -> {
+            Intent intent = new Intent(BoardActivity.this, QuestActivity.class);
+            startActivity(intent);
         });
 
+        cardTask2.setOnClickListener(v -> {
+            Intent intent = new Intent(BoardActivity.this, RatingActivity.class);
+            startActivity(intent);
+        });
+
+        cardTask3.setOnClickListener(v -> {
+            Intent intent = new Intent(BoardActivity.this, FriendsActivity.class);
+            startActivity(intent);
+        });
+
+        cardTask4.setOnClickListener(v -> {
+            Intent intent = new Intent(BoardActivity.this, AwardsActivity.class);
+            startActivity(intent);
+        });
+
+        guide.setOnClickListener(v -> {
+            // всплывающее окно
+        });
+
+        acc.setOnClickListener(v -> {
+            Intent intent = new Intent(BoardActivity.this, ProfileActivity.class);
+            startActivity(intent);
+            // ккая то анимация
+        });
+
+        menu_1.setOnClickListener(v -> {
+            // переход нф drawable nav bar
+        });
     }
 
-
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+    private void setInitialData() {
+        params.add(new Parametr("Статистика", R.drawable.status));
+        params.add(new Parametr("Обновления", R.drawable.updated));
+        params.add(new Parametr("Premium", R.drawable.premium));
+        params.add(new Parametr("Настройки", R.drawable.settings));
     }
 }

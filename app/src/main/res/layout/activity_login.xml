@@ -13,8 +13,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Войти"
         android:layout_marginTop="20dp"
+        android:text="Войти"
         android:textColor="@color/colorWhite"
         android:textSize="34sp"
         android:textStyle="bold" />
@@ -32,28 +32,28 @@
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:layout_marginStart="20dp"
-        android:background="@drawable/round_back"
         android:layout_marginTop="40dp"
-        android:layout_marginEnd="20dp">
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/round_back">
 
         <ImageView
             android:layout_width="26dp"
-            android:paddingStart="10dp"
             android:layout_height="56dp"
+            android:layout_marginTop="3dp"
+            android:paddingStart="11dp"
             android:src="@drawable/email"
-            tools:ignore="RtlSymmetry">
-        </ImageView>
+            tools:ignore="RtlSymmetry"></ImageView>
 
         <EditText
             android:id="@+id/usernameET"
             android:layout_width="match_parent"
-            android:layout_marginEnd="15dp"
             android:layout_height="55dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="15dp"
+            android:background="@android:color/transparent"
             android:hint="Email"
             android:inputType="textEmailAddress"
             android:maxLines="1"
-            android:background="@android:color/transparent"
-            android:layout_marginStart="40dp"
             android:textColorHint="@color/black"
             android:textSize="16sp" />
     </RelativeLayout>
@@ -61,29 +61,28 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:layout_marginTop="40dp"
         android:layout_marginStart="20dp"
+        android:layout_marginTop="60dp"
         android:layout_marginEnd="20dp"
         android:background="@drawable/round_back">
 
         <ImageView
             android:layout_width="26dp"
-            android:paddingStart="7dp"
             android:layout_height="56dp"
+            android:paddingStart="11dp"
             android:src="@drawable/pass"
-            tools:ignore="RtlSymmetry">
-        </ImageView>
+            tools:ignore="RtlSymmetry"></ImageView>
 
         <EditText
             android:id="@+id/passwordET"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginStart="40dp"
             android:layout_toStartOf="@+id/passwordIcon"
             android:background="@android:color/transparent"
             android:hint="Пароль"
             android:inputType="textPassword"
             android:maxLines="1"
-            android:layout_marginStart="40dp"
             android:textColorHint="@color/black"
             android:textSize="16sp" />
 
@@ -106,16 +105,20 @@
         android:layout_gravity="end"
         android:layout_marginTop="60dp"
         android:layout_marginEnd="30dp"
-        android:textStyle="bold"
         android:text="Забыли пароль?"
         android:textColor="@color/colorWhite"
-        android:textSize="17sp" />
+        android:textSize="17sp"
+        android:textStyle="bold" />
 
-    <androidx.appcompat.widget.AppCompatButton
+    <Button
         android:id="@+id/signInBtn"
         android:layout_width="300dp"
         android:layout_height="55dp"
         android:layout_marginStart="20dp"
+        android:shadowRadius="1"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowColor="@color/colorGrey"
         android:layout_marginTop="30dp"
         android:layout_marginEnd="20dp"
         android:background="@drawable/round_back_primary"
@@ -156,7 +159,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:layout_toEndOf="@+id/orTxt"
-            android:background="@color/colorWhite"/>
+            android:background="@color/colorWhite" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -180,6 +183,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
+            android:shadowRadius="1"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowColor="@color/colorGrey"
             android:text="Войти с помощью Google"
             android:textColor="@color/colorBlack"
             android:textSize="17sp"
@@ -192,7 +199,7 @@
         android:layout_width="match_parent"
         android:layout_height="36dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="35dp"
         android:layout_marginEnd="20dp"
         android:background="@drawable/round_back">
 
@@ -211,6 +218,10 @@
             android:text="Войти как Гость"
             android:textColor="@color/colorBlack"
             android:textSize="17sp"
+            android:shadowRadius="1"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowColor="@color/colorGrey"
             android:textStyle="bold" />
 
     </RelativeLayout>
@@ -234,6 +245,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="7dp"
+            android:clickable="true"
+            android:focusable="true"
             android:text="Зарегистрироваться"
             android:textColor="@color/white"
             android:textSize="16sp"

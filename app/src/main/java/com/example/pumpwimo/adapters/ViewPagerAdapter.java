@@ -23,7 +23,7 @@ public class ViewPagerAdapter extends PagerAdapter {
             R.drawable.quest,
             R.drawable.rating,
             R.drawable.friends,
-            R.drawable.reward
+            R.drawable.award
     };
 
     // заголовки

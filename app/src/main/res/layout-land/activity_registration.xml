@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/register_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/l_bg_2"
+    android:background="@drawable/login_back"
     tools:context=".activities.RegistrationActivity">
 
     <ScrollView
@@ -14,7 +13,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
             <TextView
                 android:id="@+id/crAcc"
@@ -77,7 +76,7 @@
                     android:layout_marginEnd="20dp"
                     android:adjustViewBounds="true"
                     android:padding="10dp"
-                    android:src="@drawable/password_show" />
+                    android:src="@drawable/password_hide" />
             </RelativeLayout>
 
             <EditText
@@ -116,29 +115,73 @@
                 android:textSize="16sp"
                 tools:ignore="NotSibling" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/signInBtn"
-                android:layout_width="match_parent"
+            <Button
+                android:id="@+id/createAcc"
+                android:layout_width="300dp"
                 android:layout_height="55dp"
                 android:layout_below="@id/nameET"
+                android:layout_centerHorizontal="true"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="30dp"
                 android:layout_marginEnd="20dp"
+                android:shadowRadius="1"
+                android:shadowDx="1"
+                android:shadowDy="1"
+                android:shadowColor="@color/colorGrey"
                 android:background="@drawable/round_back_primary"
-                android:text="Войти"
+                android:text="Создать аккаунт"
                 android:textAllCaps="false"
-                android:textColor="@color/colorWhite"
+                android:textColor="@color/colorBlack"
                 android:textSize="23sp" />
+
+            <RelativeLayout
+                android:id="@+id/what"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/createAcc"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="20dp">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_toStartOf="@+id/orTxt"
+                    android:background="@color/colorWhite" />
+
+                <TextView
+                    android:id="@+id/orTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="или"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="20sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_toEndOf="@+id/orTxt"
+                    android:background="@color/colorWhite" />
+            </RelativeLayout>
 
             <RelativeLayout
                 android:id="@+id/signInWith"
                 android:layout_width="match_parent"
                 android:layout_height="55dp"
-                android:layout_below="@id/signInBtn"
+                android:layout_below="@id/what"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="30dp"
                 android:layout_marginEnd="20dp"
-                android:background="@drawable/round_back">
+                android:background="@drawable/round_back"
+                android:clickable="true"
+                android:focusable="true">
 
                 <ImageView
                     android:layout_width="20dp"
@@ -153,6 +196,10 @@
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:text="Google"
+                    android:shadowRadius="1"
+                    android:shadowDx="1"
+                    android:shadowDy="1"
+                    android:shadowColor="@color/colorGrey"
                     android:textColor="@color/colorBlack"
                     android:textSize="17sp"
                     android:textStyle="bold" />

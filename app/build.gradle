@@ -29,7 +29,7 @@ android {
     }
 
     buildFeatures {
-        viewBinding true
+        viewBinding = true
     }
 }
 
@@ -44,7 +44,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 
     // RoundedImageView
-    implementation 'com.makeramen:roundedimageview:2.2.1'
+    implementation 'com.makeramen:roundedimageview:2.3.0'
 
     // Firebase
     implementation platform('com.google.firebase:firebase-bom:31.2.3')
@@ -52,12 +52,14 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth' // авторизация в бд
     implementation 'com.google.firebase:firebase-database' // сохранение данных в бд
 
+    // Circle Image View
     implementation 'de.hdodenhof:circleimageview:3.1.0'
 
-    // bubble tab bar
-    implementation  'io.ak1:bubbletabbar:1.0.8'
+    // Room
+    implementation "androidx.room:room-common:2.5.1"
+    implementation "androidx.room:room-runtime:2.5.1"
+    annotationProcessor "androidx.room:room-compiler:2.5.1"
 
-    // scalable size units
-    implementation 'com.intuit.sdp:sdp-android:1.0.6'
-    implementation 'com.intuit.ssp:ssp-android:1.0.6'
+    // View Pager 2
+    implementation "androidx.viewpager2:viewpager2:1.1.0-beta01"
 }
