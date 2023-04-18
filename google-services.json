@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "417541062365",
+    "firebase_url": "https://pumpwimo-5395e-default-rtdb.firebaseio.com",
+    "project_id": "pumpwimo-5395e",
+    "storage_bucket": "pumpwimo-5395e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:417541062365:android:bd1cfe08487664cac26534",
+        "android_client_info": {
+          "package_name": "com.example.pumpwimo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "417541062365-047jer8e5s143e7224s19pnitouag8rh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.pumpwimo",
+            "certificate_hash": "88cfeadf99954202612bc64b996962560ca08322"
+          }
+        },
+        {
+          "client_id": "417541062365-717ved1f2kk21aerkktv7086hrtrf1nt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA8Y0CqD_cksTudQSG8RQp28ATit0qOLaM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "417541062365-717ved1f2kk21aerkktv7086hrtrf1nt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
