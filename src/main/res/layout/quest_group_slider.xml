@@ -101,8 +101,8 @@
         android:id="@+id/count_quests"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="123dp"
         android:layout_marginStart="21dp"
+        android:layout_marginTop="123dp"
         android:text="3"
         android:textColor="@color/white"
         android:textSize="26sp"
@@ -141,5 +141,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints"/>
+        tools:ignore="MissingConstraints" />
 </androidx.constraintlayout.widget.ConstraintLayout>

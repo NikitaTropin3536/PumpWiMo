@@ -3,19 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+
     android:layout_height="match_parent">
 
     <ImageView
         android:id="@+id/human"
-        android:layout_width="932dp"
-        android:layout_height="939dp"
-        android:src="@drawable/jack_ma"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.458"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.014" />
+        android:layout_width="1176dp"
+        android:layout_height="830dp"
+        android:src="@drawable/jack_ma_2"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="-55dp"
+        tools:layout_editor_absoluteY="-90dp" />
 
     <TextView
         android:id="@+id/title"
@@ -25,6 +23,7 @@
         android:text="Вера в себя"
         android:textColor="@color/white"
         android:textSize="25sp"
+        android:visibility="gone"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -37,6 +36,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="72dp"
         android:gravity="center"
+        android:visibility="gone"
         android:text="Вера в себя - убежденность человека в том, что у него все получится. Уверенность в себе перед лицом трудной задачи."
         android:textColor="@color/white"
         android:textSize="20sp"
@@ -54,6 +54,7 @@
         android:layout_marginStart="91dp"
         android:layout_marginTop="480dp"
         android:src="@drawable/money"
+        android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
@@ -65,6 +66,7 @@
         android:layout_marginStart="17dp"
         android:layout_marginTop="115dp"
         android:text="25"
+        android:visibility="gone"
         android:textColor="@color/white"
         android:textSize="26sp"
         android:textStyle="bold"
@@ -92,6 +94,7 @@
         android:layout_height="120dp"
         android:layout_marginTop="471dp"
         android:layout_marginEnd="91dp"
+        android:visibility="gone"
         android:src="@drawable/icon_quest_group_1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -107,6 +110,7 @@
         android:textColor="@color/white"
         android:textSize="26sp"
         android:textStyle="bold"
+        android:visibility="gone"
         app:layout_constraintStart_toStartOf="@id/icon_quests"
         app:layout_constraintTop_toTopOf="@id/icon_quests"
         tools:ignore="MissingConstraints" />
@@ -119,6 +123,7 @@
         android:layout_marginEnd="20dp"
         android:text=" / 18"
         android:textColor="@color/white"
+        android:visibility="gone"
         android:textSize="26sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@id/icon_quests"
@@ -134,6 +139,7 @@
         android:layout_marginBottom="102dp"
         android:background="@drawable/item_quest_group_shape_1"
         android:text="Начать"
+        android:visibility="gone"
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="24sp"

@@ -14,7 +14,6 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.core.graphics.drawable.IconCompat;
 import androidx.viewpager.widget.PagerAdapter;
 
 import com.example.pumpwimo.R;
