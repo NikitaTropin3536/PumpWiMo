@@ -1,93 +1,89 @@
 package com.example.pumpwimo.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.WindowManager;
-import android.widget.ImageView;
 
 import com.example.pumpwimo.R;
-import com.example.pumpwimo.adapters.ParamsAdapter;
-import com.example.pumpwimo.models.Parametr;
-
-import java.util.ArrayList;
+import com.example.pumpwimo.databinding.ActivityBoardBinding;
+import com.example.pumpwimo.fragments.SettingsFragment;
 
 public class BoardActivity extends AppCompatActivity {
 
-    private ArrayList<Parametr> params = new ArrayList<>();
-    private LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
-    private CardView cardTask1, cardTask2, cardTask3, cardTask4, guide;
-    private RecyclerView recyclerView;
-    private ImageView menu_1, acc;
+    private ActivityBoardBinding binding;
+
+    private Intent intent;
 
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_board);
+        binding = ActivityBoardBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        cardTask1 = findViewById(R.id.cardTask1);
-        cardTask2 = findViewById(R.id.cardTask2);
-        cardTask3 = findViewById(R.id.cardTask3);
-        cardTask4 = findViewById(R.id.cardTask4);
-        menu_1 = findViewById(R.id.menu_1);
-        acc = findViewById(R.id.acc);
-        guide = findViewById(R.id.cardTheGuideBook);
-        recyclerView = findViewById(R.id.recyclerview);
+        putCardColors();
 
-        // настраиваем адаптер
-        setInitialData();
-        ParamsAdapter adapter = new ParamsAdapter(params, this);
-        recyclerView.setLayoutManager(linearLayoutManager);
-        recyclerView.setAdapter(adapter);
-
-        cardTask1.setOnClickListener(v -> {
-            Intent intent = new Intent(BoardActivity.this, QuestActivity.class);
+        // todo переход на активность с квестами
+        binding.card1.setOnClickListener(v -> {
+            intent = new Intent(BoardActivity.this, QuestActivity.class);
             startActivity(intent);
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
         });
 
-        cardTask2.setOnClickListener(v -> {
-            Intent intent = new Intent(BoardActivity.this, RatingActivity.class);
+        // todo переход на друзей
+        binding.card2.setOnClickListener(v -> {
+            intent = new Intent(BoardActivity.this, FriendsActivity.class);
             startActivity(intent);
+            // todo анимация
         });
 
-        cardTask3.setOnClickListener(v -> {
-            Intent intent = new Intent(BoardActivity.this, FriendsActivity.class);
+//        // todo переход на активность "Избранное"
+//        binding.card3.setOnClickListener(v -> {
+//            intent = new Intent(BoardActivity.this, );
+//            startActivity(intent);
+//            // todo анимация
+//        });
+
+        // todo переход на активность "Ретинг"
+        binding.card5.setOnClickListener(v -> {
+            intent = new Intent(BoardActivity.this, RatingActivity.class);
             startActivity(intent);
+            // todo анимация
         });
 
-        cardTask4.setOnClickListener(v -> {
-            Intent intent = new Intent(BoardActivity.this, AwardsActivity.class);
+        // todo переход на активность с наградами
+        binding.card6.setOnClickListener(v -> {
+            intent = new Intent(BoardActivity.this, AwardsActivity.class);
             startActivity(intent);
+            // todo анимация
         });
 
-        guide.setOnClickListener(v -> {
-            // всплывающее окно
-        });
-
-        acc.setOnClickListener(v -> {
-            Intent intent = new Intent(BoardActivity.this, ProfileActivity.class);
-            startActivity(intent);
-            // ккая то анимация
-        });
-
-        menu_1.setOnClickListener(v -> {
-            // переход нф drawable nav bar
-        });
+//        // todo переход на активность настроек
+//        binding.card7.setOnClickListener(v -> {
+//            intent = new Intent(BoardActivity.this, .class);
+//            startActivity(intent);
+//            // todo анимация
+//        });
     }
 
-    private void setInitialData() {
-        params.add(new Parametr("Статистика", R.drawable.status));
-        params.add(new Parametr("Обновления", R.drawable.updated));
-        params.add(new Parametr("Premium", R.drawable.premium));
-        params.add(new Parametr("Настройки", R.drawable.settings));
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+    }
+
+    private void putCardColors() {
+        binding.card1.setBackgroundResource(R.drawable.fon_1);
+        binding.card2.setBackgroundResource(R.drawable.fon_2);
+        binding.card3.setBackgroundResource(R.drawable.fon_4);
+        binding.card5.setBackgroundResource(R.drawable.fon_5);
+        binding.card6.setBackgroundResource(R.drawable.fon_6);
+        binding.card7.setBackgroundResource(R.drawable.fon_8);
     }
 }

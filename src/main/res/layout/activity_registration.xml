@@ -125,7 +125,7 @@
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/round_back"
                 android:hint="Твой email"
-                android:inputType="text"
+                android:inputType="textEmailAddress"
                 android:maxLines="1"
                 android:paddingStart="20dp"
                 android:paddingEnd="20dp"
@@ -172,85 +172,14 @@
                 android:layout_width="300dp"
                 android:layout_height="55dp"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="40dp"
-                android:layout_marginEnd="20dp"
+                android:layout_marginTop="55dp"
                 android:background="@drawable/round_back"
-                android:shadowColor="@color/colorGrey"
-                android:shadowDx="1"
-                android:shadowDy="1"
-                android:shadowRadius="1"
                 android:text="Создать аккаунт"
                 android:textAllCaps="false"
                 android:textColor="@color/colorBlack"
-                android:textSize="20sp" />
-
-            <RelativeLayout
-                android:id="@+id/relative_layout"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginTop="20dp">
-
-                <View
-                    android:id="@+id/leftLine"
-                    android:layout_width="120dp"
-                    android:layout_height="3dp"
-                    android:layout_marginStart="40dp"
-                    android:layout_marginTop="20dp"
-                    android:background="@color/white"
-                    tools:ignore="MissingConstraints,RtlSymmetry" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="7dp"
-                    android:text="Или"
-                    android:textColor="@color/white"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-
-                <View
-                    android:id="@+id/rightLine"
-                    android:layout_width="120dp"
-                    android:layout_height="3dp"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginEnd="40dp"
-                    android:background="@color/white"
-                    tools:ignore="MissingConstraints,RtlSymmetry" />
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="55dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="20dp"
-                android:background="@drawable/round_back">
-
-                <ImageView
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="16dp"
-                    android:src="@drawable/google" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="64dp"
-                    android:layout_marginTop="12dp"
-                    android:text="Войти с помощью Google"
-                    android:textColor="@color/black"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-            </RelativeLayout>
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="25dp"
-                android:layout_marginTop="10dp" />
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

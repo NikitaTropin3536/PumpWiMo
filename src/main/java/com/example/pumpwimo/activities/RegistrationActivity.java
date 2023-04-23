@@ -1,7 +1,5 @@
 package com.example.pumpwimo.activities;
 
-import static com.example.pumpwimo.R.*;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -15,10 +13,12 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -27,6 +27,7 @@ import android.widget.TextView;
 
 import com.example.pumpwimo.R;
 import com.example.pumpwimo.databinding.ActivityRegistrationBinding;
+import com.example.pumpwimo.other.editRefactor.CurrencyTextWatcherEditPhone;
 import com.example.pumpwimo.usersDatabase.User;
 import com.example.pumpwimo.usersDatabase.UserDao;
 import com.example.pumpwimo.usersDatabase.UserDatabaseApplication;
@@ -52,20 +53,13 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class RegistrationActivity extends AppCompatActivity {
 
     private ActivityRegistrationBinding binding;
-
     private FirebaseAuth auth; // todo для авторизации
     private DatabaseReference users; // todo для работы с табличками внутри бд
 
-    private int permission; // todo переменная для проверки требований к введенным данным
-
-    // todo snackbar строчки
+    // todo Snackbar строчки
     private final static String STRING_1 = "Введите данные полностью";
-    private final static String STRING_2 = "Учтите требования";
-
-    // todo уникальный идентификатор устройства
-//    @SuppressLint("HardwareIds")
-//    private final String android_id = Settings.Secure.getString(this.getContentResolver(),
-//            Settings.Secure.ANDROID_ID);
+    private final static String STRING_2 = "Неправильно введенный mail";
+    private final static String STRING_3 = "Длина пароля должна быть больше или равна 8";
 
     // todo для uri
     private ByteArrayOutputStream bytes;
@@ -85,17 +79,22 @@ public class RegistrationActivity extends AppCompatActivity {
     // todo intent для директории с изображениями
     private Intent intent_file = new Intent();
 
-    // todo для определения нашего "местоположения"
-    private int where = 0;
-
     // изменял иили нет
     private int change = 0;
 
     // todo диалоговое окно
     private Dialog dialog;
+    // todo snackbar
+    private Snackbar snackbar;
+    private View snackbarView;
+    private Snackbar.SnackbarLayout snackbarLayout;
 
-    @SuppressLint({"ShowToast", "HardwareIds"})
-    @Override
+    // todo для определения нашего "местоположения" - камера или директория с картинками
+    private int where = 0;
+
+    // todo пароль хорошо захешировался или нет
+    private int good = 0;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityRegistrationBinding.inflate(getLayoutInflater());
@@ -104,9 +103,7 @@ public class RegistrationActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        // todo теперь мы поместим данные в наши переменные
         auth = FirebaseAuth.getInstance(); // запускаем авторизацию в бд
-        // todo для подключения к базе даннных
         FirebaseDatabase db = FirebaseDatabase.getInstance(); // подключаемся к бд
 
         /*
@@ -115,24 +112,33 @@ public class RegistrationActivity extends AppCompatActivity {
         // todo табличка Users - пользователи
         users = db.getReference("Users");
 
+        // todo сохраняем все пользовательские данные
+        String userName = binding.editName.getText().toString();
+        String userPhone = binding.editPhone.getText().toString();
+        String userMail = binding.editMail.getText().toString();
+        String userPassword = doHashPassword(binding.editPass.getText().toString());
+//        Uri picUri = getUriPicAvatar(this, goToBitmap(binding.circleSteveJobs));
+
         // todo обработка нажатия на кнопку создания аккаунта
         binding.createAcc.setOnClickListener(v -> {
-            check(); // todo 1. проверка требований
 
             // todo 2. совпадение - не думаю
-            switch (permission) {
+            switch (check(userName, userPhone, userMail, userPassword)) {
                 case 1:
-                    Snackbar.make(binding.registerLayout, STRING_1, Snackbar.LENGTH_SHORT).show();
-                    Log.v("text", STRING_1);
+                    showSnackbarNotPermission(this, STRING_1);
+                    Log.v("permission", STRING_1);
                     break;
                 case 2:
-                    Snackbar.make(binding.registerLayout, STRING_2, Snackbar.LENGTH_SHORT).show();
-                    Log.v("text", STRING_2);
+                    showSnackbarNotPermission(this, STRING_2);
+                    Log.v("permission", STRING_2);
                     break;
                 case 3:
+                    showSnackbarNotPermission(this, STRING_3);
+                    Log.v("permission", STRING_3);
+                    break;
+                case 4:
                     // todo Регистрация пользователя
-                    String passwordDatabase = doHashPassword(binding.editPass.getText().toString());
-                    auth.createUserWithEmailAndPassword(binding.editMail.getText().toString(), passwordDatabase)
+                    auth.createUserWithEmailAndPassword(userMail, userPassword)
                             .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                                 /*
                                 обработчик события, который вызовет функцию onSuccess только в том случае,
@@ -141,13 +147,7 @@ public class RegistrationActivity extends AppCompatActivity {
                                 */
                                 @Override
                                 public void onSuccess(AuthResult authResult) {
-                                    User user = new User(
-                                            binding.editName.getText().toString(),
-                                            binding.editPhone.getText().toString(),
-                                            binding.editMail.getText().toString(),
-                                            passwordDatabase,
-                                            getUriPicAvatar(binding.circleSteveJobs) // todo в базу даных передается строчка, в которой лежит uri
-                                    );
+                                    User user = new User(userName, userPhone, userMail, userPassword, "!");
                                     userDao.save(user); // сохраняем юзера в локальную базу даннных - TODO 2)
 
                                      /*
@@ -164,7 +164,7 @@ public class RegistrationActivity extends AppCompatActivity {
                                                 public void onSuccess(Void unused) {
                                                     // переход на "рабочий стол" пользователя
                                                     Intent intent = new Intent(RegistrationActivity.this, BoardActivity.class);
-                                                    overridePendingTransition(anim.slide_in_right, anim.slide_out_left);
+                                                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                                                     finish();
                                                 }
                                             });
@@ -173,6 +173,9 @@ public class RegistrationActivity extends AppCompatActivity {
             }
         });
 
+        // todo добавляем авторефакторинг в ediText - ы
+        binding.editPhone.addTextChangedListener(new CurrencyTextWatcherEditPhone());
+
         // todo тыкаем на картинку - появляется диалоговое окно
         binding.circleSteveJobs.setOnClickListener(v -> {
             showDialogSelect(this);
@@ -180,52 +183,57 @@ public class RegistrationActivity extends AppCompatActivity {
     }
 
     // todo метод проверяет введённые данные на соответствие требованиям
-    private void check() {
-        if (TextUtils.isEmpty(binding.editName.getText().toString())
-                || TextUtils.isEmpty(binding.editPhone.getText().toString())
-                || TextUtils.isEmpty(binding.editMail.getText().toString())
-                || TextUtils.isEmpty(binding.editPass.getText().toString())) {
-            permission = 1; // введите данные полностью
-        } else if (!binding.editMail.getText().toString().contains("@")
-                || binding.editPass.getText().toString().length() < 8) {
-            permission = 2; // учтите требования
-        } else if (binding.editMail.getText().toString().contains("@")
-                && binding.editPass.getText().toString().length() >= 8) {
-            permission = 3; // разрешение
+    private int check(String userName, String userPhone, String userMail, String userPassword) {
+        if (TextUtils.isEmpty(userName)
+                || TextUtils.isEmpty(userPhone)
+                || TextUtils.isEmpty(userMail)
+                || TextUtils.isEmpty(userPassword)) {
+            return 1; // введите данные полностью
+        } if (!userMail.contains("@")) {
+           return 2; // email должен содержать @
+        } if (userPassword.length() < 8) {
+            return 3; // пароль должен содержать 8 и более символов
         }
-        Log.v("Permission", "permission == " + permission);
+        return 4;
     }
 
     // todo тыкаем на кнопочку back
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        overridePendingTransition(anim.slide_in_left, anim.slide_out_right);
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
     }
 
     // todo уникальный хеш пароля
+    @SuppressLint("HardwareIds")
     private String doHashPassword(String password) {
         try {
             MessageDigest md = MessageDigest.getInstance("SHA-256");
             md.update(password.getBytes(StandardCharsets.UTF_8));
-            return Hex.toHexString(md.digest()); //+ android_id;
+            good = 1; // todo все хорошо, мы сохранили хороший хеш пароля
+            return Hex.toHexString(md.digest()) + Settings.Secure.getString(
+                    this.getContentResolver(),
+                    Settings.Secure.ANDROID_ID
+            );
         } catch (NoSuchAlgorithmException exception) {
+            // todo все плохо, мы сохранили не тот хеш, который хотели
             return password + binding.editPhone.getText().toString();
         }
     }
 
-    // todo получаем String c uri картинки на нашей аватарке
-    private String getUriPicAvatar(CircleImageView circleImageView) {
-        circleImageView.buildDrawingCache();
-        Bitmap avatar = circleImageView.getDrawingCache();
-        bytes = new ByteArrayOutputStream();
+    // todo получаем Uri картинки на нашей аватарке
+    private Uri getUriPicAvatar(Context context, Bitmap avatar) {
+        ByteArrayOutputStream bytes = new ByteArrayOutputStream();
         avatar.compress(Bitmap.CompressFormat.PNG, 100, bytes);
-        String path = MediaStore.Images.Media.insertImage(RegistrationActivity.
-                this.getContentResolver(),
-                avatar,
-                "Avatar",
-                null);
-        return Uri.parse(path).toString();
+        String path = MediaStore.Images.Media.insertImage(context.getContentResolver(), avatar, "Avatar", null);
+        Uri picUri = Uri.parse(path);
+        return picUri;
+    }
+
+    private Bitmap goToBitmap(CircleImageView imageView) {
+        BitmapDrawable drawable = (BitmapDrawable) imageView.getDrawable();
+        Bitmap image = drawable.getBitmap();
+        return image;
     }
 
     // todo проверка на permission для камеры
@@ -335,7 +343,7 @@ public class RegistrationActivity extends AppCompatActivity {
     // todo создание диалогового окна
     private void showDialogSelect(Context context) {
         dialog = new Dialog(context);
-        dialog.setContentView(layout.alert_registration);
+        dialog.setContentView(R.layout.alert_registration);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
         TextView select_1;
@@ -353,5 +361,14 @@ public class RegistrationActivity extends AppCompatActivity {
             openFile();
         });
         dialog.show();
+    }
+
+    private void showSnackbarNotPermission(Context context, String s) {
+        snackbar = Snackbar.make(binding.registerLayout, s, Snackbar.LENGTH_LONG);
+        snackbarView = getLayoutInflater().inflate(R.layout.snackbar_registration, null);
+        snackbar.getView().setBackgroundColor(Color.TRANSPARENT);
+        snackbarLayout = (Snackbar.SnackbarLayout) snackbar.getView();
+        snackbarLayout.addView(snackbarView, 0);
+        snackbar.show();
     }
 }

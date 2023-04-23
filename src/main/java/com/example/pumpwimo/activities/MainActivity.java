@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
     private ViewPagerAdapter viewPagerAdapter;
 
-    // здесь хрнаится номер элемента tutorial - а на котором находится пользователь
+    // здесь хрнаится номер элемента tutorial - а, на котором находится пользователь
     public static int whatIsIt;
 
     @Override
@@ -127,5 +127,6 @@ public class MainActivity extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+        finish();
     }
 }

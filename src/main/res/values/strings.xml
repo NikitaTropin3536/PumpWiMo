@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">PumpWiMo</string>
+    <string name="hello_blank_fragment">fkkfkfkfkfkkf</string>
 
     // slides_headings
     <string name="first_slide_heading">Добро пожаловать в PUMPWIMO!</string>
@@ -24,22 +25,26 @@
 
     // quest - groups
     // titles
-    <string name="quest_group_title_1">1. Целеутремленность</string>
-    <string name="quest_group_title_2">2. Вера в себя</string>
-    <string name="quest_group_title_3">3. Решительность</string>
+    <string name="quest_group_title_1">1. Вера в себя</string>
+    <string name="quest_group_title_2">2. Целеустремленность</string>
+    <string name="quest_group_title_3">3. Дисциплинированность</string>
     <string name="quest_group_title_4">4. Усидчивость</string>
-    <string name="quest_group_title_5">5. Сила духа</string>
-    <string name="quest_group_title_6">6. Непоколебимость</string>
+    <string name="quest_group_title_5">5. Стратегичность</string>
+    <string name="quest_group_title_6">6. Сила духа</string>
 
-    // description
-    <string name="quest_group_description_1">Упорно и настойчиво работайте над достижением своей цели</string>
-    <string name="quest_group_description_2">Будьте уверенны в себе перед лицом вызова. Смело идите вперед</string>
-    <string name="quest_group_description_3">Принимайте смелые решения в трудных обстоятельствах</string>
-    <string name="quest_group_description_4">Сконцентрируйтесь на выполнении одной задачи</string>
-    <string name="quest_group_description_5">Даже когда нет ничего хорошего, вы будете двигаться дальше</string>
-    <string name="quest_group_description_6">Не сдавайтесь. Никогда. Вы не должны бояться никого. Только бездействия</string>
+    // descriptions
+    <string name="quest_group_description_1">Вера в себя - убежденность человека в том, что у него все получится. Уверенность в себе перед лицом трудной задачи.</string>
+    <string name="quest_group_description_2">Целеустремленность - это способность активно и сознательно работать для достижения своей цели</string>
+    <string name="quest_group_description_3">Дисциплинированность – сознательное соблюдение установленного порядка жизни и деятельности</string>
+    <string name="quest_group_description_4">Усидчивость - это значит сосредоточиться на чем - то одном и очень упорно работать</string>
+    <string name="quest_group_description_5">Стратегичность - правильное выделение важных объектов и необходимых ресурсов для достижения цели</string>
+    <string name="quest_group_description_6">Сила духа - это решимость, способность побеждать свои страхи и идти вперед, невзирая на беды и трудности</string>
 
-    <string name="hello_blank_fragment">fkkfkfkfkfkkf</string>
-    <string name="first_fragment_label">kgjggjgkgkkgkg</string>
-    <string name="second_fragment_label">g;glgg;g;g;;g</string>
+    // текст на кнопке начать
+    <string name="but_begin_text_1">Начать!</string>
+    <string name="but_begin_text_2">Вперед!</string>
+    <string name="but_begin_text_3">Ну же!</string>
+    <string name="but_begin_text_4">Поработаем!</string>
+    <string name="but_begin_text_5">Действуй!</string>
+    <string name="but_begin_text_6">Сюда!</string>
 </resources>
