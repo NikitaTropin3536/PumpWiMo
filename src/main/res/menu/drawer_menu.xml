@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_statists"
+            android:icon="@drawable/image_statistics"
+            android:title="Статистика" />
+
+        <item
+            android:id="@+id/nav_success"
+            android:icon="@drawable/image_success"
+            android:title="Успех" />
+
+        <item
+            android:id="@+id/nav_favourites"
+            android:icon="@drawable/image_favourites"
+            android:title="Избранное" />
+    </group>
+
+    <item android:title="Данные">
+
+        <menu>
+            <item
+                android:id="@+id/nav_profile"
+                android:icon="@color/private_account"
+                android:title="Профиль" />
+        </menu>
+    </item>
+
+    <item android:title="Настройки и обратная связь">
+
+        <menu>
+            <item
+                android:id="@+id/nav_settings"
+                android:icon="@drawable/image_settings"
+                android:title="Настройки" />
+
+            <item
+                android:id="@+id/nav_svas"
+                android:icon="@drawable/image_settings"
+                android:title="Обратная связь" />
+        </menu>
+    </item>
+</menu>
