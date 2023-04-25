@@ -1,9 +1,9 @@
 package com.example.pumpwimo.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 import androidx.viewpager.widget.ViewPager;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.View;
@@ -14,7 +14,7 @@ import com.example.pumpwimo.R;
 import com.example.pumpwimo.adapters.QuestGroupViewPagerAdapter;
 import com.example.pumpwimo.databinding.ActivityQuestBinding;
 
-public class QuestActivity extends AppCompatActivity {
+public class QuestGroupActivity extends AppCompatActivity {
 
     private ActivityQuestBinding binding;
 
@@ -35,6 +35,8 @@ public class QuestActivity extends AppCompatActivity {
 
     public static int where = 0;
 
+    private FragmentManager fragmentManager = getSupportFragmentManager();
+
     // todo в этом классе есть костыльный код!
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,26 +51,26 @@ public class QuestActivity extends AppCompatActivity {
         // todo кнопочка back
         binding.back.setOnClickListener(v -> {
             binding.slideViewPager.setCurrentItem(getItem(-1), true);
-            --QuestActivity.where;
+            --QuestGroupActivity.where;
         });
 
         // todo кнопка следающий
         binding.next.setOnClickListener(v -> {
             binding.slideViewPager.setCurrentItem(getItem(1), true);
-            ++QuestActivity.where;
+            ++QuestGroupActivity.where;
         });
 
         binding.first.setVisibility(View.INVISIBLE);
         // todo листануть на первый
         binding.first.setOnClickListener(v -> {
             binding.slideViewPager.setCurrentItem(0, true);
-            QuestActivity.where = 0;
+            QuestGroupActivity.where = 0;
         });
 
         // todo листануть на последний
         binding.last.setOnClickListener(v -> {
             binding.slideViewPager.setCurrentItem(5, true);
-            QuestActivity.where = 5;
+            QuestGroupActivity.where = 5;
         });
 
         // todo инициализируем ажаптер

@@ -4,6 +4,7 @@ import static android.content.res.Configuration.*;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,9 +15,13 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.fragment.app.FragmentManager;
 import androidx.viewpager.widget.PagerAdapter;
 
 import com.example.pumpwimo.R;
+import com.example.pumpwimo.activities.BoardActivity;
+import com.example.pumpwimo.activities.QuestGroupActivity;
+import com.example.pumpwimo.activities.QuestsActivity;
 
 public class QuestGroupViewPagerAdapter extends PagerAdapter {
 
@@ -159,9 +164,14 @@ public class QuestGroupViewPagerAdapter extends PagerAdapter {
         // todo ставим текст на кнопочку
         begin.setText(butBeginTexts[position]);
 
-        if (position == 5) { // todo если мы на 5 - ом экране - меняем цвет стрелки
+        if (position == 5) { // todo если мы на 5 - ом экране - меняем цвет текста на кнопке
             begin.setTextColor(R.color.colorBlack);
         }
+
+        begin.setOnClickListener(v -> {
+            openQuestActivity(context);
+
+        });
 
         container.addView(view);
         return view;
@@ -176,5 +186,9 @@ public class QuestGroupViewPagerAdapter extends PagerAdapter {
         Context context = this.context.getApplicationContext();
         Configuration configuration = context.getResources().getConfiguration();
         return configuration;
+    }
+
+    private void openQuestActivity(Context context) {
+        context.startActivity(new Intent(context, QuestsActivity.class));
     }
 }

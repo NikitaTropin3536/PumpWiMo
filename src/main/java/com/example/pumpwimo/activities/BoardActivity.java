@@ -9,7 +9,6 @@ import android.view.WindowManager;
 
 import com.example.pumpwimo.R;
 import com.example.pumpwimo.databinding.ActivityBoardBinding;
-import com.example.pumpwimo.fragments.SettingsFragment;
 
 public class BoardActivity extends AppCompatActivity {
 
@@ -31,7 +30,7 @@ public class BoardActivity extends AppCompatActivity {
 
         // todo переход на активность с квестами
         binding.card1.setOnClickListener(v -> {
-            intent = new Intent(BoardActivity.this, QuestActivity.class);
+            intent = new Intent(BoardActivity.this, QuestGroupActivity.class);
             startActivity(intent);
             overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
         });

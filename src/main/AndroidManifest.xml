@@ -2,10 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-feature android:name="android.hardware.camera.any"/>
-    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-feature android:name="android.hardware.camera.any" />
 
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
         tools:ignore="ScopedStorage" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
@@ -19,6 +20,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PumpWiMo"
         tools:targetApi="33">
+        <activity
+            android:name=".QuestsActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
         <activity
             android:name=".activities.ProfileActivity"
             android:exported="false">
@@ -36,7 +44,7 @@
             android:name=".activities.RatingActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.QuestActivity"
+            android:name=".activities.QuestGroupActivity"
             android:exported="false" />
         <activity
             android:name=".activities.IntermediateActivity"
