@@ -20,10 +20,16 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView[] dots;
 
+    // адаптер для viewPager
     private ViewPagerAdapter viewPagerAdapter;
 
-    // здесь хрнаится номер элемента tutorial - а, на котором находится пользователь
     public static int whatIsIt;
+
+    /**
+     * здесь хранится номер элемента tutorial - а,
+     * на котором находился пользователь до нажатия
+     * на кнопку "Пропустить"
+     */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
+        // кнопочка "Назад"
         binding.back.setVisibility(View.INVISIBLE);
         binding.back.setOnClickListener(v -> {
             if (getItem(0) > 0) {
@@ -41,17 +48,24 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // кнопочка "Далее"
         binding.next.setOnClickListener(v -> {
             if (getItem(0) < 4) {
                 binding.slideViewPager.setCurrentItem(getItem(1), true);
             } else {
                 Intent intent = new Intent(MainActivity.this, IntermediateActivity.class);
                 whatIsIt = 2;
+                /**
+                 * если мы находимся на последнем слайде viewPager - a во время перехода
+                 * на ActivityIntermediate - сохраняем 2
+                 */
+
                 startActivity(intent);
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
 
+        // кнопочка "Пропустить"
         binding.skip.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, IntermediateActivity.class);
             if (getItem(0) == 4) {
@@ -60,6 +74,11 @@ public class MainActivity extends AppCompatActivity {
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             } else if (getItem(0) < 4) {
                 whatIsIt = 1;
+                /**
+                 * если мы находимся не на последнем слайде viewPager - a во время перехода
+                 * на ActivityIntermediate - сохраняем 1
+                 */
+
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
             }
@@ -70,7 +89,6 @@ public class MainActivity extends AppCompatActivity {
         binding.slideViewPager.setAdapter(viewPagerAdapter);
 
         setUpIndicator(0);
-        // что с ней не так?
         binding.slideViewPager.addOnPageChangeListener(viewListener);
     }
 

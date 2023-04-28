@@ -63,6 +63,8 @@ dependencies {
     // Test - espresso
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 
+    // todo библиотеки
+
     // Firebase
     implementation platform('com.google.firebase:firebase-bom:31.2.3')
     implementation 'com.google.firebase:firebase-analytics'
@@ -79,21 +81,25 @@ dependencies {
     implementation "androidx.room:room-runtime:2.5.1"
     annotationProcessor "androidx.room:room-compiler:2.5.1"
 
-    // View Pager 2 // todo для infinity lifecycele in QuestActivity
+    // View Pager 2
+    // todo для infinity lifecycele in QuestActivity
     implementation "androidx.viewpager2:viewpager2:1.1.0-beta01"
 
-    // Hex  // todo для хеширования пароля пользователя
+    // Hex
+    // todo для хеширования пароля пользователя
     implementation 'org.bouncycastle:bcprov-jdk15on:1.69'
 
-    // Android Support Library
-    //noinspection GradleCompatible
-    implementation 'com.android.support:support-v4:29.0.2'
-
-    // Design Support Library
-    //noinspection GradleCompatible
-    implementation 'com.android.support:design-v4:29.0.2'
-
-    // Recycler View In Android
-    implementation 'androidx.recyclerview:recyclerview:1.3.0'
-
+//    // Android Support Library
+//    //noinspection GradleCompatible
+//    implementation 'com.android.support:support-v4:29.0.2'
+//
+//    // Design Support Library
+//    //noinspection GradleCompatible
+//    implementation 'com.android.support:design-v4:29.0.2'
+//
+//    // Recycler View In Android
+//    implementation 'androidx.recyclerview:recyclerview:1.3.0'
+//
+//    //MultiDex
+//    implementation 'androidx.multidex:multidex:2.0.1'
 }

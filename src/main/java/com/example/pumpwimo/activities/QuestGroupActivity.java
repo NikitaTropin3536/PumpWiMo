@@ -12,18 +12,20 @@ import android.widget.TextView;
 
 import com.example.pumpwimo.R;
 import com.example.pumpwimo.adapters.QuestGroupViewPagerAdapter;
-import com.example.pumpwimo.databinding.ActivityQuestBinding;
+import com.example.pumpwimo.databinding.ActivityQuestGroupBinding;
 
 public class QuestGroupActivity extends AppCompatActivity {
 
-    private ActivityQuestBinding binding;
+    private ActivityQuestGroupBinding binding;
 
     private TextView[] dots;
 
-    // todo адаптер
+    // адаптер
     private QuestGroupViewPagerAdapter questGroupViewPagerAdapter;
 
-    // todo масссив цветов для индикатора
+    private FragmentManager fragmentManager = getSupportFragmentManager();
+
+    // масссив цветов для индикатора
     private int[] indicatorColors = {
             R.color.orange,
             R.color.red,
@@ -35,48 +37,48 @@ public class QuestGroupActivity extends AppCompatActivity {
 
     public static int where = 0;
 
-    private FragmentManager fragmentManager = getSupportFragmentManager();
-
     // todo в этом классе есть костыльный код!
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityQuestBinding.inflate(getLayoutInflater());
+        binding = ActivityQuestGroupBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
+        // кнопочка back
         binding.back.setVisibility(View.INVISIBLE);
-        // todo кнопочка back
         binding.back.setOnClickListener(v -> {
-            binding.slideViewPager.setCurrentItem(getItem(-1), true);
+            binding.slideViewPager.setCurrentItem(getItem(-1),
+                    true);
             --QuestGroupActivity.where;
         });
 
-        // todo кнопка следающий
+        // кнопка next
         binding.next.setOnClickListener(v -> {
-            binding.slideViewPager.setCurrentItem(getItem(1), true);
+            binding.slideViewPager.setCurrentItem(getItem(1),
+                    true);
             ++QuestGroupActivity.where;
         });
 
+        // перемещаемся на первый слайд
         binding.first.setVisibility(View.INVISIBLE);
-        // todo листануть на первый
         binding.first.setOnClickListener(v -> {
             binding.slideViewPager.setCurrentItem(0, true);
             QuestGroupActivity.where = 0;
         });
 
-        // todo листануть на последний
+        // перемещаемся на последний
         binding.last.setOnClickListener(v -> {
             binding.slideViewPager.setCurrentItem(5, true);
             QuestGroupActivity.where = 5;
         });
 
-        // todo инициализируем ажаптер
+        // инициализируем ажаптер
         questGroupViewPagerAdapter = new QuestGroupViewPagerAdapter(this);
 
-        // todo ставим viewPager - у адаптер
+        // ставим viewPager - у адаптер
         binding.slideViewPager.setAdapter(questGroupViewPagerAdapter);
 
         setUpIndicator(0);
@@ -95,7 +97,7 @@ public class QuestGroupActivity extends AppCompatActivity {
             binding.indicatorLayout.addView(dots[i]);
         }
 
-        setIndicatorColor(position); // todo ставим цвет индикатору
+        setIndicatorColor(position); // ставим цвет индикатору в зависимости от слайда
     }
 
     ViewPager.OnPageChangeListener viewListener = new ViewPager.OnPageChangeListener() {
@@ -130,19 +132,21 @@ public class QuestGroupActivity extends AppCompatActivity {
         }
     };
 
+    // ставим цвет индикатору в зависимотсти от того слайда, на котором находится пользователь
     private void setIndicatorColor(int position) {
-        dots[position].setTextColor(getResources().getColor(indicatorColors[position], getApplicationContext().getTheme()));
+        dots[position].setTextColor(getResources().getColor(indicatorColors[position],
+                getApplicationContext().getTheme()));
     }
 
     private int getItem(int i) {
         /*
-        todo | метод, благодаря которому мы узнаем,
-        todo | на каком элементе находится пользователь
+        метод, благодаря которому мы узнаём,
+        на каком элементе находится пользователь
          */
         return binding.slideViewPager.getCurrentItem() + i;
     }
 
-    // todo нажатие на back на нижней панели - переходим на BoardActivity
+    // нажатие на back на нижней панели - переходим на BoardActivity
     @Override
     public void onBackPressed() {
         super.onBackPressed();

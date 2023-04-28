@@ -29,7 +29,7 @@ public class CurrencyTextWatcherEditPhone implements TextWatcher {
             removeFormat(s.toString());
             applyFormat(builder.toString()); // форматирование текста
             ignore = true;
-            s.replace(0, s.length(), builder.toString()); // введенный тектс полностью заменяется на отформатированный
+            s.replace(0, s.length(), builder.toString()); // введенный текст полностью заменяется на отформатированный
             ignore = false;
         }
     }
@@ -45,7 +45,6 @@ public class CurrencyTextWatcherEditPhone implements TextWatcher {
             }
         }
     }
-
 
     private void applyFormat(String text) {
         // форматирование по шаблону
@@ -63,6 +62,7 @@ public class CurrencyTextWatcherEditPhone implements TextWatcher {
         }
     }
 
+    // проверяем, является ли символ цифрой
     private boolean isNumberChar(char c) {
         // является ли символ цифрой?
         return c >= '0' && c <= '9';

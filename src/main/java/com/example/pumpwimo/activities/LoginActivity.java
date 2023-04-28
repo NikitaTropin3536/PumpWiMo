@@ -14,7 +14,6 @@ import android.view.WindowManager;
 
 import com.example.pumpwimo.R;
 import com.example.pumpwimo.usersDatabase.UserDao;
-import com.example.pumpwimo.usersDatabase.UserDatabaseApplication;
 import com.example.pumpwimo.databinding.ActivityLoginBinding;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -35,7 +34,7 @@ public class LoginActivity extends AppCompatActivity {
     private final static String STRING_1 = "Введите данные полностью";
     private final static String STRING_2 = "Учтите требования";
 
-    private UserDao userDao = UserDatabaseApplication.getUserDatabase().userDao();
+//    private UserDao userDao = UserDatabaseApplication.getUserDatabase().userDao();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

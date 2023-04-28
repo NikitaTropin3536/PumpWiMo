@@ -31,7 +31,7 @@ public class SplashScreenActivity extends AppCompatActivity {
     private void transition() {
         Intent intent = new Intent(SplashScreenActivity.this, MainActivity.class);
         startActivity(intent);
-        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out); // анимация
         finish();
     }
 
@@ -43,7 +43,7 @@ public class SplashScreenActivity extends AppCompatActivity {
                 Thread.sleep(450);
             } catch (InterruptedException ignored) {
             }
-            // проходит 0, 45 секунды - ереход
+            // проходит 0, 45 секунды - переход
             transition();
         }
     }

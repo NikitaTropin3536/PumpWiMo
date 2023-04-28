@@ -13,7 +13,7 @@
     <string name="first_slide_description">Мотивация\nПрокачка силы воли\nИ многое другое… в нашем приложении</string>
     <string name="second_slide_description">У нас есть более 100 уникальных квестов по прокачке силы воли. Рискнёте пройти их все и получить главный приз?</string>
     <string name="third_slide_description">У Вас много соперников. Дайте им отпор!</string>
-    <string name="fourth_slide_description">Намного интереснее играть в команде. Соберите ее и вперед… нвстречу приключениям!</string>
+    <string name="fourth_slide_description">Вы можете завести много друзей! Общаться с ними и делиться своим опытом</string>
     <string name="fifth_slide_description">За проделанную работу полагаются награды. И они у нас тоже есть!</string>
 
     // slides_swards
@@ -47,4 +47,9 @@
     <string name="but_begin_text_4">Поработаем!</string>
     <string name="but_begin_text_5">Действуй!</string>
     <string name="but_begin_text_6">Сюда!</string>
+    <string name="title_activity_success">ActivitySuccess</string>
+    <!-- Strings used for fragments for navigation -->
+
+    <string name="open">Open</string>
+    <string name="close">Close</string>
 </resources>

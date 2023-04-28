@@ -1,6 +1,5 @@
 package com.example.pumpwimo.usersDatabase;
 
-import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
@@ -14,60 +13,74 @@ public class User {
     @PrimaryKey(autoGenerate = true)
     public int id;
 
-    @ColumnInfo(name = "mail")
+    @ColumnInfo(name = "userName")
     @NotNull
-    public String mail;
+    public String userName;
 
-    @ColumnInfo(name = "password")
+    @ColumnInfo(name = "userPhone")
     @NotNull
-    public String password;
+    public String userPhone;
 
-    @ColumnInfo(name = "name")
+    @ColumnInfo(name = "userMail")
     @NotNull
-    public String name;
+    public String userMail;
 
-    @ColumnInfo(name = "phone")
+    @ColumnInfo(name = "userPassword")
     @NotNull
-    public String phone;
+    public String userPassword;
 
-    @ColumnInfo(name = "picUri")
+    @ColumnInfo(name = "userPicUri")
     @NotNull
-    public String picUri;
+    public String userPicUri;
 
-    public User(@NonNull String name,
-                @NotNull String phone,
-                @NotNull String mail,
-                @NotNull String password,
-                @NotNull String picUri) {
-        this.name = name;
-        this.phone = phone;
-        this.mail = mail;
-        this.password = password;
-        this.picUri = picUri;
+    public User(int id,
+                @NotNull String userName,
+                @NotNull String userPhone,
+                @NotNull String userMail,
+                @NotNull String userPassword,
+                @NotNull String userPicUri) {
+        this.id = id;
+        this.userName = userName;
+        this.userPhone = userPhone;
+        this.userMail = userMail;
+        this.userPassword = userPassword;
+        this.userPicUri = userPicUri;
     }
+
+//    public User(@NotNull String userName,
+//                @NotNull String userPhone,
+//                @NotNull String userMail,
+//                @NotNull String userPassword,
+//                @NotNull String userPicUri) {
+//        this.userName = userName;
+//        this.userPhone = userPhone;
+//        this.userMail = userMail;
+//        this.userPassword = userPassword;
+//        this.userPicUri = userPicUri;
+//    }
 
     public void setId(int id) {
         this.id = id;
     }
 
-    public void setMail(@NotNull String mail) {
-        this.mail = mail;
+    public void setUserName(@NotNull String userName) {
+        this.userName = userName;
     }
 
-    public void setPassword(@NotNull String password) {
-        this.password = password;
+    public void setUserPhone(@NotNull String userPhone) {
+        this.userPhone = userPhone;
     }
 
-    public void setName(@NotNull String name) {
-        this.name = name;
+    public void setUserMail(@NotNull String userMail) {
+        this.userMail = userMail;
     }
 
-    public void setPhone(@NotNull String phone) {
-        this.phone = phone;
+    public void setUserPassword(@NotNull String userPassword) {
+        this.userPassword = userPassword;
     }
 
-    public void setPicUri(@NotNull String picUri) {
-        this.picUri = picUri;
+    public void setUserPicUri(@NotNull String userPicUri) {
+        this.userPicUri = userPicUri;
     }
 
     public int getId() {
@@ -75,27 +88,27 @@ public class User {
     }
 
     @NotNull
-    public String getMail() {
-        return mail;
+    public String getUserName() {
+        return userName;
     }
 
     @NotNull
-    public String getPassword() {
-        return password;
+    public String getUserPhone() {
+        return userPhone;
     }
 
     @NotNull
-    public String getName() {
-        return name;
+    public String getUserMail() {
+        return userMail;
     }
 
     @NotNull
-    public String getPhone() {
-        return phone;
+    public String getUserPassword() {
+        return userPassword;
     }
 
     @NotNull
-    public String getPicUri() {
-        return picUri;
+    public String getUserPicUri() {
+        return userPicUri;
     }
 }

@@ -11,7 +11,7 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
-        android:name=".usersDatabase.UserDatabaseApplication"
+        android:name=".UserDatabaseApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -20,6 +20,22 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PumpWiMo"
         tools:targetApi="33">
+        <activity
+            android:name=".ActivitySuccess"
+            android:exported="false"
+            android:label="@string/title_activity_success"
+            android:theme="@style/Theme.PumpWiMo.NoActionBar">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".SettingsActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
         <activity
             android:name=".QuestsActivity"
             android:exported="false">
@@ -34,9 +50,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-        <activity
-            android:name=".activities.AwardsActivity"
-            android:exported="false" />
         <activity
             android:name=".activities.FriendsActivity"
             android:exported="false" />

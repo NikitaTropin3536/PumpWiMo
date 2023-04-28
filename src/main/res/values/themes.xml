@@ -12,6 +12,11 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <item name="android:listDivider">@android:color/transparent</item>
+        <item name="drawerArrowStyle">@style/DrawerIcon</item>
+        <item name="android:divider">@drawable/menu_item_padding</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
     </style>
 
     // theme for alert dialog
@@ -23,5 +28,23 @@
     <style name="MyTabLayoutStyle" parent="TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse">
         <item name="android:textSize">22sp</item>
         <item name="android:textAllCaps">true</item>
+    </style>
+
+    <style name="Theme.PumpWiMo.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="TextViewStyle" parent="android:Widget.TextView">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">#fff</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.popUpOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="DrawerIcon" parent="Widget.AppCompat.DrawerArrowToggle">
+        <item name="color">#AE000000</item>
     </style>
 </resources>
