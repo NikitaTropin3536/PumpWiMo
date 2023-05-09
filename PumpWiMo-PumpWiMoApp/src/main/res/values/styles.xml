@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="nightModeSwitch" parent="Theme.AppCompat.Light">
+        <item name="colorControlActivated">@color/night_mode</item>
+        <item name="colorSwitchThumbNormal">@color/colorWhite</item>
+        <item name="android:colorForeground">#99FFFFFF</item>
+    </style>
+
+    <style name="notificationsSwitch" parent="Theme.AppCompat.Light">
+        <item name="colorControlActivated">@color/notification</item>
+        <item name="colorSwitchThumbNormal">@color/colorWhite</item>
+        <item name="android:colorForeground">#99FFFFFF</item>
+    </style>
+
+    <style name="privateAccountSwitch" parent="Theme.AppCompat.Light">
+        <item name="colorControlActivated">@color/private_account</item>
+        <item name="colorSwitchThumbNormal">@color/colorWhite</item>
+        <item name="android:colorForeground">#99FFFFFF</item>
+    </style>
+
+</resources>

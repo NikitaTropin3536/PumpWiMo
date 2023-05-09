@@ -1,0 +1,154 @@
+package com.example.pumpwimo.activities;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.text.Html;
+import android.view.View;
+import android.view.WindowManager;
+import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.ViewPager;
+
+import com.example.pumpwimo.R;
+import com.example.pumpwimo.adapters.ViewPagerAdapter;
+import com.example.pumpwimo.databinding.ActivityMainBinding;
+
+// TODO ПРОВЕРЕНО
+
+// todo активность tutorial - a поменять название на TutorialActivity
+public class MainActivity extends AppCompatActivity {
+
+    private ActivityMainBinding binding;
+
+    private TextView[] dots;
+
+    /**
+     * адаптер для viewPager
+     */
+    private ViewPagerAdapter viewPagerAdapter;
+
+    /**
+     * здесь хранится номер элемента tutorial - а,
+     * на котором находился пользователь до нажатия
+     * на кнопку "Пропустить"
+     */
+    public static int whatIsIt;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+        /** кнопочка "Назад" */
+        binding.back.setVisibility(View.INVISIBLE);
+        binding.back.setOnClickListener(v -> {
+            if (getItem(0) > 0) {
+                binding.slideViewPager.setCurrentItem(getItem(-1), true);
+            }
+        });
+
+        /** кнопочка "Далее" */
+        binding.next.setOnClickListener(v -> {
+            if (getItem(0) < 4) {
+                binding.slideViewPager.setCurrentItem(getItem(1), true);
+            } else {
+                Intent intent = new Intent(MainActivity.this, IntermediateActivity.class);
+                whatIsIt = 2;
+                /**
+                 * если мы находимся на последнем слайде viewPager - a во время перехода
+                 * на ActivityIntermediate - сохраняем 2
+                 */
+                startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+            }
+        });
+
+        /** кнопочка "Пропустить" */
+        binding.skip.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, IntermediateActivity.class);
+            if (getItem(0) == 4) {
+                whatIsIt = 2;
+                startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+            } else if (getItem(0) < 4) {
+                whatIsIt = 1;
+                /**
+                 * если мы находимся не на последнем слайде viewPager - a во время перехода
+                 * на ActivityIntermediate - сохраняем 1
+                 */
+                startActivity(intent);
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+            }
+        });
+
+        viewPagerAdapter = new ViewPagerAdapter(this);
+
+        binding.slideViewPager.setAdapter(viewPagerAdapter);
+
+        setUpIndicator(0);
+        binding.slideViewPager.addOnPageChangeListener(viewListener);
+    }
+
+    public void setUpIndicator(int position) {
+        dots = new TextView[5];
+        binding.indicatorLayout.removeAllViews();
+
+        for (int i = 0; i < dots.length; i++) {
+            dots[i] = new TextView(this);
+            dots[i].setText(Html.fromHtml("&#8226"));
+            dots[i].setTextSize(35);
+            dots[i].setTextColor(getResources().getColor(R.color.colorBlack, getApplicationContext().getTheme()));
+            binding.indicatorLayout.addView(dots[i]);
+        }
+
+        dots[position].setTextColor(getResources().getColor(R.color.main_3, getApplicationContext().getTheme()));
+    }
+
+    ViewPager.OnPageChangeListener viewListener = new ViewPager.OnPageChangeListener() {
+        @Override
+        public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+        }
+
+        @Override
+        public void onPageSelected(int position) {
+            setUpIndicator(position);
+            if (position == 0) {
+                binding.back.setVisibility(View.INVISIBLE);
+            } else if (position >= 1) {
+                binding.back.setVisibility(View.VISIBLE);
+            } else {
+                binding.back.setVisibility(View.INVISIBLE);
+            }
+        }
+
+        @Override
+        public void onPageScrollStateChanged(int state) {
+
+        }
+    };
+
+
+    private int getItem(int i) {
+        /**
+         метод, благодаря которому мы узнаем,
+         на каком элементе tutorial - а находится пользователь
+         */
+        return binding.slideViewPager.getCurrentItem() + i;
+    }
+
+    /**
+     * наэжатие на back на нижней панели
+     */
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+        finish();
+    }
+}

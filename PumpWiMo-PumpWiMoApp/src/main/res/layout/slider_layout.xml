@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    app:flow_horizontalAlign="center">
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="5dp"
+        android:src="@drawable/mini_logo" />
+
+    <TextView
+        android:id="@+id/sward"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="105dp"
+        android:layout_marginTop="7dp"
+        android:text="Давайте познакомимся!"
+        android:textColor="@color/colorWhite"
+        android:textSize="20sp" />
+
+    <ImageView
+        android:id="@+id/titleImage"
+        android:layout_width="wrap_content"
+        android:layout_height="320dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="60dp"
+        android:src="@drawable/bear" />
+
+    <TextView
+        android:id="@+id/textTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/titleImage"
+        android:layout_marginTop="400dp"
+        android:text="Добро пожаловать в PumpWiMo!"
+        android:textAlignment="center"
+        android:textColor="@color/colorBlack"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/titleImage"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="467dp"
+        android:text="Давайте мы покажем, чем можем Вас развлечь!"
+        android:textAlignment="center"
+        android:textColor="@color/colorBlack"
+        android:textSize="20sp"
+        android:textStyle="italic" />
+</RelativeLayout>

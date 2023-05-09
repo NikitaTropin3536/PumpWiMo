@@ -1,0 +1,55 @@
+<resources>
+    <string name="app_name">PumpWiMo</string>
+    <string name="hello_blank_fragment">fkkfkfkfkfkkf</string>
+
+    // slides_headings
+    <string name="first_slide_heading">Добро пожаловать в PUMPWIMO!</string>
+    <string name="second_slide_heading">Интересные задания!</string>
+    <string name="third_slide_heading">Соревнуйтесь! И станьте первым!</string>
+    <string name="fourth_slide_heading">Развлекайтесь вместе с друзьями!</string>
+    <string name="fifth_slide_heading">Что же вы получите?</string>
+
+    // slides_descriptions
+    <string name="first_slide_description">Мотивация\nПрокачка силы воли\nИ многое другое… в нашем приложении</string>
+    <string name="second_slide_description">У нас есть более 100 уникальных квестов по прокачке силы воли. Рискнёте пройти их все и получить главный приз?</string>
+    <string name="third_slide_description">У Вас много соперников. Дайте им отпор!</string>
+    <string name="fourth_slide_description">Вы можете завести много друзей! Общаться с ними и делиться своим опытом</string>
+    <string name="fifth_slide_description">За проделанную работу полагаются награды. И они у нас тоже есть!</string>
+
+    // slides_swards
+    <string name="swards_first">Давайте познакомимся!</string>
+    <string name="swards_second">Итак..Начнем рассказ</string>
+    <string name="swards_third">Борьба нас захватывает!</string>
+    <string name="swards_fourth">Вместе всегда веселее!</string>
+    <string name="swards_fifth">Победы нас мотивируют!</string>
+
+    // quest - groups
+    // titles
+    <string name="quest_group_title_1">1. Вера в себя</string>
+    <string name="quest_group_title_2">2. Целеустремленность</string>
+    <string name="quest_group_title_3">3. Дисциплинированность</string>
+    <string name="quest_group_title_4">4. Усидчивость</string>
+    <string name="quest_group_title_5">5. Стратегичность</string>
+    <string name="quest_group_title_6">6. Сила духа</string>
+
+    // descriptions
+    <string name="quest_group_description_1">Вера в себя - убежденность человека в том, что у него все получится. Уверенность в себе перед лицом трудной задачи.</string>
+    <string name="quest_group_description_2">Целеустремленность - это способность активно и сознательно работать для достижения своей цели</string>
+    <string name="quest_group_description_3">Дисциплинированность – сознательное соблюдение установленного порядка жизни и деятельности</string>
+    <string name="quest_group_description_4">Усидчивость - это значит сосредоточиться на чем - то одном и очень упорно работать</string>
+    <string name="quest_group_description_5">Стратегичность - правильное выделение важных объектов и необходимых ресурсов для достижения цели</string>
+    <string name="quest_group_description_6">Сила духа - это решимость, способность побеждать свои страхи и идти вперед, невзирая на беды и трудности</string>
+
+    // текст на кнопке начать
+    <string name="but_begin_text_1">Начать!</string>
+    <string name="but_begin_text_2">Вперед!</string>
+    <string name="but_begin_text_3">Ну же!</string>
+    <string name="but_begin_text_4">Поработаем!</string>
+    <string name="but_begin_text_5">Действуй!</string>
+    <string name="but_begin_text_6">Сюда!</string>
+    <string name="title_activity_success">ActivitySuccess</string>
+    <!-- Strings used for fragments for navigation -->
+
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+</resources>
